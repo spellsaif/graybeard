@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Sextant Durable Decision",
+  "type": "object",
+  "required": ["key", "decision", "createdAt"],
+  "properties": {
+    "key": { "type": "string", "minLength": 1 },
+    "area": { "type": "string" },
+    "invariant": { "type": "string" },
+    "decision": { "type": "string", "minLength": 1 },
+    "evidence": { "type": "array", "items": { "type": "string" } },
+    "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+    "createdAt": { "type": "string" },
+    "revisitWhen": { "type": "string" }
+  },
+  "additionalProperties": false
+}

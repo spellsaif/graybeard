@@ -1,0 +1,11 @@
+{
+  "risk": "HIGH",
+  "confidence": 0.91,
+  "facts": ["three write paths converge on payment service", "database lacks external-event uniqueness"],
+  "unknown": [],
+  "invariants": ["one external event creates at most one payment"],
+  "candidates": ["handler lock", "redis lock", "database uniqueness + idempotency"],
+  "rejected": ["handler lock: does not cover worker", "redis lock: extra system without invariant enforcement"],
+  "decision": "enforce idempotency at the persistence boundary",
+  "validation": ["HTTP", "webhook", "worker", "retry"]
+}

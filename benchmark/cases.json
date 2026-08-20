@@ -1,0 +1,7 @@
+[
+  {"id":"tiny-change","class":"feature","risk":"low","goal":"Add a small helper using an existing utility."},
+  {"id":"misleading-bug","class":"bug","risk":"medium","goal":"Fix an endpoint error whose ticket points at the wrong layer."},
+  {"id":"duplicate-write","class":"concurrency","risk":"high","goal":"Prevent duplicate order creation across HTTP, worker and retry paths."},
+  {"id":"tenant-delete","class":"security","risk":"high","goal":"Fix tenant authorization without weakening isolation."},
+  {"id":"legacy-cleanup","class":"legacy","risk":"medium","goal":"Remove a suspicious workaround only if its historical constraint is obsolete."}
+]

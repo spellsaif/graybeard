@@ -1,0 +1,2 @@
+# Sextant for OpenCode
+Use Sextant as the judgment layer. Before changing code, classify the task and route only the skills justified by risk and uncertainty. For low-risk work, stay lightweight. For high-risk work, orient, trace causality, challenge assumptions, decide, constrain the change surface, minimize implementation, and verify. It is valid to STOP when the request is already solved, based on a false premise, or insufficiently specified.

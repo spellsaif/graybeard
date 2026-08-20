@@ -1,0 +1,12 @@
+{
+  "area": "payments",
+  "invariant": "one external payment event creates at most one payment",
+  "decision": "enforce idempotency at the persistence boundary",
+  "evidence": [
+    "HTTP, webhook and worker paths converge on the payment service",
+    "the database has no uniqueness constraint for the external event id"
+  ],
+  "confidence": 0.91,
+  "revisitWhen": "write volume or persistence model changes",
+  "createdAt": "2026-08-20T00:00:00.000Z"
+}
