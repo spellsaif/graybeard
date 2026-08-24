@@ -313,6 +313,59 @@ test('oracles: detect available project verification tools in workspace', () => 
   assert.ok(oracles.some(o => o.command === 'npm run check'));
 });
 
+test('oracles: accurately detects oracles across Python, Rust, Go, Java, C#, Ruby, PHP, CMake, and Elixir', () => {
+  const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'gb-multi-oracles-'));
+  
+  // Python setup
+  fs.writeFileSync(path.join(temp, 'pyproject.toml'), '[tool.pytest]\n');
+  fs.writeFileSync(path.join(temp, 'mypy.ini'), '[mypy]\n');
+  let detected = detectOracles(temp);
+  assert.ok(detected.some(o => o.runner === 'pytest'));
+  assert.ok(detected.some(o => o.runner === 'mypy'));
+
+  // Rust setup
+  fs.writeFileSync(path.join(temp, 'Cargo.toml'), '[package]\nname = "test"\n');
+  detected = detectOracles(temp);
+  assert.ok(detected.some(o => o.command === 'cargo test'));
+  assert.ok(detected.some(o => o.command === 'cargo check'));
+
+  // Go setup
+  fs.writeFileSync(path.join(temp, 'go.mod'), 'module test\n');
+  detected = detectOracles(temp);
+  assert.ok(detected.some(o => o.command.startsWith('go test')));
+
+  // Java Maven & Gradle
+  fs.writeFileSync(path.join(temp, 'pom.xml'), '<project></project>');
+  detected = detectOracles(temp);
+  assert.ok(detected.some(o => o.runner === 'maven'));
+
+  // C# / .NET
+  fs.writeFileSync(path.join(temp, 'App.csproj'), '<Project></Project>');
+  detected = detectOracles(temp);
+  assert.ok(detected.some(o => o.runner === 'dotnet'));
+
+  // Ruby
+  fs.writeFileSync(path.join(temp, 'Gemfile'), 'source "https://rubygems.org"');
+  detected = detectOracles(temp);
+  assert.ok(detected.some(o => o.runner === 'rake'));
+
+  // PHP
+  fs.writeFileSync(path.join(temp, 'composer.json'), '{}');
+  fs.writeFileSync(path.join(temp, 'phpunit.xml'), '<phpunit></phpunit>');
+  detected = detectOracles(temp);
+  assert.ok(detected.some(o => o.runner === 'phpunit'));
+
+  // C/C++ CMake
+  fs.writeFileSync(path.join(temp, 'CMakeLists.txt'), 'cmake_minimum_required(VERSION 3.10)');
+  detected = detectOracles(temp);
+  assert.ok(detected.some(o => o.runner === 'ctest'));
+
+  // Elixir
+  fs.writeFileSync(path.join(temp, 'mix.exs'), 'defmodule Test.MixProject do\nend');
+  detected = detectOracles(temp);
+  assert.ok(detected.some(o => o.runner === 'mix'));
+});
+
 test('oracles: runOracle executes command and captures duration, output, and exit status', () => {
   const root = path.resolve('.');
   const passOracle = { type: 'integrity', command: 'node scripts/check.js' };

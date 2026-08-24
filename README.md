@@ -11,7 +11,7 @@
 <p align="center">
   <a href="https://www.npmjs.com/package/graybeard"><img src="https://img.shields.io/badge/npm-v1.0.0-blue.svg?style=flat-square" alt="npm"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg?style=flat-square" alt="MIT License"></a>
-  <a href="tests/core.test.js"><img src="https://img.shields.io/badge/tests-29%20passing-brightgreen.svg?style=flat-square" alt="Tests"></a>
+  <a href="tests/core.test.js"><img src="https://img.shields.io/badge/tests-30%20passing-brightgreen.svg?style=flat-square" alt="Tests"></a>
   <a href="package.json"><img src="https://img.shields.io/badge/node-%3E%3D18.0.0-informational.svg?style=flat-square" alt="Node.js"></a>
   <a href="#-supported-coding-agents"><img src="https://img.shields.io/badge/works%20with-12%20AI%20Agents-blueviolet.svg?style=flat-square" alt="12 Agents"></a>
 </p>
@@ -162,12 +162,24 @@ Unlike traditional agents that generate speculative code on bad prompts, Graybea
 
 ## ⚡ Deterministic Verification Oracles
 
-Graybeard bridges the gap between probabilistic LLMs and deterministic compilers. Run verification on your repository:
+Graybeard bridges the gap between probabilistic LLMs and deterministic compilers. Run verification on any codebase:
 
 ```bash
-# Detect and run test runners, typecheckers, and linters
+# Auto-detects and runs test runners, typecheckers, and linters across 10+ languages
 npx graybeard verify
 ```
+
+### Supported Language & Ecosystem Oracles:
+- **JavaScript / TypeScript:** `npm test`, `npm run check`, `npx tsc --noEmit`, `npm run lint`
+- **Python:** `pytest`, `mypy .`, `ruff check .`
+- **Rust:** `cargo check`, `cargo test`
+- **Go:** `go test ./...`, `go vet ./...`
+- **Java / Kotlin:** `mvn test`, `gradlew test`
+- **.NET / C#:** `dotnet build`, `dotnet test`
+- **Ruby:** `bundle exec rspec`, `bundle exec rake test`
+- **PHP:** `phpunit`, `composer test`
+- **C / C++:** `ctest`, `make test`
+- **Elixir:** `mix test`
 
 Output:
 ```json
@@ -305,7 +317,7 @@ Graybeard is designed as the next step in that evolution: adding **Principal Eng
 | **MEDIUM** | Multi-file bug fix, refactor, feature | Traces causality $\rightarrow$ Single-boundary diff | **Optimal single-boundary diff**, no side-effects |
 | **HIGH** | Concurrency, auth, database migration | Traces invariant $\rightarrow$ Falsifies failure paths $\rightarrow$ Surgery | **Zero silent regressions**, root-cause eliminated |
 | **INVALID / REDUNDANT** | Already solved, wrong layer, unsafe | Triggers **Hard Stop Engine** with evidence | **100% token savings**, 0 code churn |
-| **VERIFICATION** | Post-implementation validation | Runs local compiler typecheckers & test suites | **Deterministic mathematical proof** (`29/29 Passing`) |
+| **VERIFICATION** | Post-implementation validation | Runs local compiler typecheckers & test suites | **Deterministic mathematical proof** (`30/30 Passing`) |
 
 ---
 

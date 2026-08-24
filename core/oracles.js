@@ -7,7 +7,7 @@ function exists(p) { return fs.existsSync(p); }
 export function detectOracles(root = process.cwd()) {
   const oracles = [];
 
-  // Node.js / TypeScript / JavaScript
+  // 1. Node.js / TypeScript / JavaScript
   const pkgPath = path.join(root, 'package.json');
   if (exists(pkgPath)) {
     try {
@@ -24,24 +24,72 @@ export function detectOracles(root = process.cwd()) {
     }
   }
 
-  // Rust
+  // 2. Rust
   if (exists(path.join(root, 'Cargo.toml'))) {
     oracles.push({ type: 'typecheck', runner: 'cargo', command: 'cargo check', description: 'Rust Cargo Check' });
     oracles.push({ type: 'test', runner: 'cargo', command: 'cargo test', description: 'Rust Cargo Test Suite' });
   }
 
-  // Python
-  if (exists(path.join(root, 'pyproject.toml')) || exists(path.join(root, 'pytest.ini')) || exists(path.join(root, 'setup.py'))) {
+  // 3. Python
+  if (exists(path.join(root, 'pyproject.toml')) || exists(path.join(root, 'pytest.ini')) || exists(path.join(root, 'setup.py')) || exists(path.join(root, 'requirements.txt'))) {
     oracles.push({ type: 'test', runner: 'pytest', command: 'pytest', description: 'Python Pytest Suite' });
     if (exists(path.join(root, 'mypy.ini')) || exists(path.join(root, 'pyproject.toml'))) {
       oracles.push({ type: 'typecheck', runner: 'mypy', command: 'mypy .', description: 'Python MyPy Type Checker' });
     }
+    if (exists(path.join(root, 'ruff.toml')) || exists(path.join(root, '.ruff.toml'))) {
+      oracles.push({ type: 'lint', runner: 'ruff', command: 'ruff check .', description: 'Python Ruff Linter' });
+    }
   }
 
-  // Go
+  // 4. Go
   if (exists(path.join(root, 'go.mod'))) {
     oracles.push({ type: 'test', runner: 'go', command: 'go test ./...', description: 'Go Test Suite' });
     oracles.push({ type: 'lint', runner: 'go', command: 'go vet ./...', description: 'Go Vet Static Analysis' });
+  }
+
+  // 5. Java / Kotlin (Maven / Gradle)
+  if (exists(path.join(root, 'pom.xml'))) {
+    oracles.push({ type: 'test', runner: 'maven', command: 'mvn test', description: 'Maven Test Suite' });
+  }
+  if (exists(path.join(root, 'build.gradle')) || exists(path.join(root, 'build.gradle.kts'))) {
+    const gradleCmd = process.platform === 'win32' && exists(path.join(root, 'gradlew.bat'))
+      ? 'gradlew.bat test'
+      : (exists(path.join(root, 'gradlew')) ? './gradlew test' : 'gradle test');
+    oracles.push({ type: 'test', runner: 'gradle', command: gradleCmd, description: 'Gradle Test Suite' });
+  }
+
+  // 6. .NET / C#
+  if (exists(path.join(root, '*.sln')) || exists(path.join(root, '*.csproj')) || fs.readdirSync(root).some(f => f.endsWith('.sln') || f.endsWith('.csproj'))) {
+    oracles.push({ type: 'test', runner: 'dotnet', command: 'dotnet test', description: '.NET Test Suite' });
+    oracles.push({ type: 'typecheck', runner: 'dotnet', command: 'dotnet build', description: '.NET Build Check' });
+  }
+
+  // 7. Ruby
+  if (exists(path.join(root, 'Gemfile'))) {
+    if (exists(path.join(root, 'spec'))) {
+      oracles.push({ type: 'test', runner: 'rspec', command: 'bundle exec rspec', description: 'Ruby RSpec Suite' });
+    } else {
+      oracles.push({ type: 'test', runner: 'rake', command: 'bundle exec rake test', description: 'Ruby Rake Test' });
+    }
+  }
+
+  // 8. PHP
+  if (exists(path.join(root, 'composer.json'))) {
+    if (exists(path.join(root, 'phpunit.xml')) || exists(path.join(root, 'phpunit.xml.dist'))) {
+      oracles.push({ type: 'test', runner: 'phpunit', command: './vendor/bin/phpunit', description: 'PHPUnit Test Suite' });
+    }
+  }
+
+  // 9. C / C++ (CMake / Make)
+  if (exists(path.join(root, 'CMakeLists.txt'))) {
+    oracles.push({ type: 'test', runner: 'ctest', command: 'ctest --output-on-failure', description: 'CMake CTest Suite' });
+  } else if (exists(path.join(root, 'Makefile'))) {
+    oracles.push({ type: 'test', runner: 'make', command: 'make test', description: 'Makefile Test Target' });
+  }
+
+  // 10. Elixir
+  if (exists(path.join(root, 'mix.exs'))) {
+    oracles.push({ type: 'test', runner: 'mix', command: 'mix test', description: 'Elixir Mix Test Suite' });
   }
 
   return oracles;
