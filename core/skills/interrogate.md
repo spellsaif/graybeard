@@ -1,15 +1,21 @@
-# Sextant Skill: Interrogate
+---
+name: graybeard-interrogate
+description: Question the premise, request, and hidden assumptions before solving a task.
+triggers:
+  - uncertain
+  - ambiguous
+  - medium
+  - high
+---
+# Graybeard Skill: Interrogate
 
-Purpose: test whether the requested change is actually the right problem to solve.
+Purpose: prevent building the wrong thing or solving a symptom instead of the problem.
 
-Ask only decision-changing questions:
-- What observed behavior is wrong?
-- What evidence shows the proposed change addresses it?
-- Which assumptions are unverified?
-- Is the requested change already present, partially present, or aimed at the wrong layer?
-- What requirement or invariant is actually being protected?
-
-Hard stop when evidence shows the request is unnecessary, contradictory, unsafe, or aimed at the wrong cause.
+Actions:
+- separate the user's observed symptom from the user's requested mechanism;
+- identify any invalid premise, wrong architectural layer, or contradictory requirements;
+- identify what must remain true (invariants) throughout the task;
+- determine whether the task is already solved, redundant, or impossible with current repository constraints.
 
 Output state:
-PROBLEM, ASSUMPTIONS, UNKNOWN, STOP_REASON when applicable.
+PREMISE_STATUS, INVARIANTS, ASSUMPTIONS.

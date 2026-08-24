@@ -1,11 +1,22 @@
-# Sextant Skill: Trace
+---
+name: graybeard-trace
+description: Trace symptoms to causal paths and root causes across call paths and data flow.
+triggers:
+  - bug
+  - medium
+  - high
+  - performance
+  - security
+---
+# Graybeard Skill: Trace
 
-Purpose: follow causality instead of following the filename or ticket wording.
+Purpose: establish why the system behaves the way it does before changing anything.
 
-Trace the smallest useful path:
-entry point -> calls -> state/data mutation -> side effect -> persistence/external boundary -> observed symptom.
-
-For cross-module problems, identify every materially different path that can produce the behavior.
+Actions:
+- follow execution backwards from symptom/error to root cause;
+- identify the mutation, state transition, or missing precondition;
+- distinguish root cause from downstream side effects;
+- inspect relevant tests, schemas, and error boundaries.
 
 Output state:
-CAUSE_PATH, ROOT_CAUSE, COVERAGE_GAPS.
+CAUSE_PATH, FAULT_LOCATION.

@@ -8,7 +8,8 @@ export function routeTask(input = {}) {
     stop,
     sequence: stop.stop ? ['stop'] : plan.skills,
     policy: {
-      allowDeepReasoning: plan.risk !== 'LOW' || plan.investigate,
+      fastPath: plan.isFastPath,
+      allowDeepReasoning: !plan.isFastPath && (plan.risk !== 'LOW' || plan.investigate),
       requireFalsification: plan.skills.includes('challenge'),
       requireChangeSurface: plan.skills.includes('surgery'),
       persistDecision: plan.skills.includes('memory'),

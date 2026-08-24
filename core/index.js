@@ -1,20 +1,26 @@
 import { calculateRisk, riskScore, shouldInvestigate, RISK_LEVELS } from './risk.js';
-import { inferTaskType, normalizeTaskType } from './classifier.js';
+import { inferTaskType, normalizeTaskType, isPresentationIntent } from './classifier.js';
 import { SKILL_DEFS, SKILL_ORDER, skillCost } from './skills.js';
 
-export { calculateRisk, riskScore, shouldInvestigate, RISK_LEVELS, inferTaskType, normalizeTaskType, SKILL_DEFS, SKILL_ORDER, skillCost };
+export { calculateRisk, riskScore, shouldInvestigate, RISK_LEVELS, inferTaskType, normalizeTaskType, isPresentationIntent, SKILL_DEFS, SKILL_ORDER, skillCost };
 
 const clamp = (v) => Math.max(0, Math.min(1, v));
 const clip = (v) => String(v ?? '').replace(/\s+/g, ' ').trim();
 
-export function selectSkills({ risk = 'LOW', confidence = 1, taskType = 'unknown', repeat = false } = {}) {
+export function selectSkills({ risk = 'LOW', confidence = 1, taskType = 'unknown', repeat = false, blastRadius = 0.5 } = {}) {
   const selected = new Set(['orient', 'decide', 'economy', 'verify', 'stop']);
-  const uncertain = confidence < 0.7;
-  if (uncertain || risk !== 'LOW' || taskType === 'unknown') selected.add('interrogate');
-  if (risk !== 'LOW' || ['bug','performance','security','concurrency'].includes(taskType)) selected.add('trace');
-  if (risk === 'HIGH' || ['security','migration','concurrency','architecture'].includes(taskType)) selected.add('challenge');
-  if (risk === 'HIGH' || ['security','migration','concurrency','architecture'].includes(taskType)) selected.add('surgery');
-  if (['legacy','refactor','cleanup'].includes(taskType)) selected.add('archaeology');
+  const isSpecialized = ['legacy', 'refactor', 'cleanup', 'security', 'migration', 'concurrency', 'architecture'].includes(taskType);
+  const isTrivial = !isSpecialized && (['styling', 'docs'].includes(taskType) || (risk === 'LOW' && confidence >= 0.85));
+
+  if (!isTrivial) {
+    const uncertain = confidence < 0.7;
+    if (uncertain || risk !== 'LOW' || taskType === 'unknown') selected.add('interrogate');
+    if (risk !== 'LOW' || ['bug', 'performance', 'security', 'concurrency'].includes(taskType)) selected.add('trace');
+    if (risk === 'HIGH' || ['security', 'migration', 'concurrency', 'architecture'].includes(taskType)) selected.add('challenge');
+    if (risk === 'HIGH' || ['security', 'migration', 'concurrency', 'architecture'].includes(taskType)) selected.add('surgery');
+    if (['legacy', 'refactor', 'cleanup'].includes(taskType)) selected.add('archaeology');
+  }
+
   if (repeat || taskType === 'review') selected.add('memory');
   return SKILL_ORDER.filter(skill => selected.has(skill));
 }
@@ -25,11 +31,28 @@ export function classifyTask({
 } = {}) {
   const normalizedType = normalizeTaskType(taskType, text);
   let score = riskScore({ uncertainty, impact, irreversibility, blastRadius });
-  if (['security','migration','concurrency'].includes(normalizedType)) score = Math.max(score, 0.7);
-  if (normalizedType === 'architecture') score = Math.max(score, 0.6);
+
+  if (['styling', 'docs'].includes(normalizedType)) {
+    score = Math.min(score, 0.2);
+  } else {
+    if (['security', 'migration', 'concurrency'].includes(normalizedType)) score = Math.max(score, 0.7);
+    if (normalizedType === 'architecture') score = Math.max(score, 0.6);
+  }
+
   const risk = score >= 0.7 ? 'HIGH' : score >= 0.35 ? 'MEDIUM' : 'LOW';
-  const skills = selectSkills({ risk, confidence, taskType: normalizedType, repeat });
-  return { taskType: normalizedType, risk, score, investigate: shouldInvestigate({ confidence, risk }), skills, skillCost: skillCost(skills) };
+  const isFastPath = (risk === 'LOW' || (confidence >= 0.85 && blastRadius <= 0.3)) &&
+    !['security', 'migration', 'concurrency', 'architecture', 'legacy'].includes(normalizedType);
+  const skills = selectSkills({ risk, confidence, taskType: normalizedType, repeat, blastRadius });
+
+  return {
+    taskType: normalizedType,
+    risk,
+    score,
+    isFastPath,
+    investigate: !isFastPath && shouldInvestigate({ confidence, risk }),
+    skills,
+    skillCost: skillCost(skills)
+  };
 }
 
 export function createLedger(overrides = {}) {

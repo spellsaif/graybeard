@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Sextant Durable Decision",
+  "title": "Graybeard Durable Decision",
   "type": "object",
   "required": ["key", "decision", "createdAt"],
   "properties": {

@@ -1,10 +1,34 @@
 {
-  "name": "sextant-agent",
+  "name": "graybeard",
   "version": "1.0.0",
-  "description": "Adaptive engineering judgment layer for AI coding agents.",
+  "description": "The Principal Engineering & Surgical Minimalism Engine for AI Coding Agents.",
   "type": "module",
+  "main": "core/index.js",
   "bin": {
-    "sextant": "scripts/sextant.js"
+    "graybeard": "scripts/graybeard.js"
+  },
+  "exports": {
+    ".": "./core/index.js",
+    "./router": "./core/router.js",
+    "./classifier": "./core/classifier.js",
+    "./risk": "./core/risk.js",
+    "./installer": "./core/installer.js",
+    "./oracles": "./core/oracles.js",
+    "./memory": "./memory/store.js"
+  },
+  "files": [
+    "core",
+    "adapters",
+    "skills",
+    "memory",
+    "schemas",
+    "scripts",
+    "assets",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
   },
   "scripts": {
     "test": "node --test",
@@ -15,15 +39,28 @@
     "ai-agents",
     "coding-agents",
     "agent-skills",
-    "reasoning",
-    "software-engineering"
+    "principal-engineer",
+    "minimalism",
+    "yagni",
+    "software-engineering",
+    "claude-code",
+    "cursor",
+    "windsurf",
+    "copilot",
+    "opencode",
+    "antigravity"
   ],
   "author": {
     "name": "Nanasi",
     "url": "https://github.com/spellsaif"
   },
   "repository": {
-    "url": "https://github.com/spellsaif/sextant"
+    "type": "git",
+    "url": "https://github.com/spellsaif/graybeard.git"
   },
+  "bugs": {
+    "url": "https://github.com/spellsaif/graybeard/issues"
+  },
+  "homepage": "https://github.com/spellsaif/graybeard#readme",
   "license": "MIT"
 }

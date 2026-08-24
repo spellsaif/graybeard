@@ -1,5 +1,17 @@
-# Sextant: verify
+---
+name: graybeard-verify
+description: Verify both behavioral correctness and invariant preservation.
+triggers:
+  - always
+---
+# Graybeard Skill: Verify
 
-**Purpose:** verify
+Purpose: ensure the fix solved the problem without breaking existing contracts.
 
-Use this capability only when selected by Sextant's router or when the situation clearly requires it. Keep state compact and evidence-based. Never dump hidden chain-of-thought; record only facts, uncertainty, invariants, alternatives, decisions, and validation that materially affect engineering outcomes.
+Actions:
+- verify the primary bug or feature goal with deterministic checks or tests;
+- verify that core invariants were preserved;
+- verify that no accidental files, debug statements, or dependencies were added.
+
+Output state:
+VERIFICATION_RESULTS, INVARIANT_STATUS.

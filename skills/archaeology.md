@@ -1,5 +1,19 @@
-# Sextant: archaeology
+---
+name: graybeard-archaeology
+description: Recover historical constraints before deleting or simplifying strange legacy code (Chesterton's Fence).
+triggers:
+  - legacy
+  - refactor
+  - cleanup
+---
+# Graybeard Skill: Archaeology
 
-**Purpose:** archaeology
+Purpose: understand why strange-looking code exists before removing or simplifying it.
 
-Use this capability only when selected by Sextant's router or when the situation clearly requires it. Keep state compact and evidence-based. Never dump hidden chain-of-thought; record only facts, uncertainty, invariants, alternatives, decisions, and validation that materially affect engineering outcomes.
+Actions:
+- use git log / git blame / commit messages / PR references to identify the original constraint or bug;
+- determine whether the original constraint is still active, obsolete, or handled elsewhere;
+- do not delete defensive workarounds without explaining why they are no longer necessary.
+
+Output state:
+HISTORICAL_CONSTRAINT, ACTIVE_STATUS.

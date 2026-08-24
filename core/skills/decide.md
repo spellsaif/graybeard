@@ -1,15 +1,18 @@
-# Sextant Skill: Decide
+---
+name: graybeard-decide
+description: Compare viable alternatives and choose the smallest justified decision.
+triggers:
+  - always
+---
+# Graybeard Skill: Decide
 
-Purpose: make the narrowest justified engineering decision after evidence gathering.
+Purpose: pick the simplest intervention that completely satisfies the invariants.
 
-Compare only materially different alternatives using:
-correctness, invariant coverage, blast radius, complexity, performance, security, reversibility, and maintenance cost.
-
-Decision rules:
-- choose an existing mechanism when it fully satisfies the invariant;
-- reject a candidate when a critical path or invariant is uncovered;
-- do not introduce abstraction merely to make the design look clean;
-- when evidence is insufficient for a high-risk irreversible action, stop rather than guess.
+Actions:
+- prefer no code change (configuration, existing helper, standard library);
+- prefer localized changes over distributed changes;
+- prefer explicit assertions/invariants over defensive propagation;
+- explicitly reject over-engineered candidates with brief reasons.
 
 Output state:
-DECISION, RATIONALE, REJECTED.
+DECISION, REJECTED_CANDIDATES.

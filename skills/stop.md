@@ -1,5 +1,18 @@
-# Sextant: stop
+---
+name: graybeard-stop
+description: Permit an evidence-backed early halt or no-change decision when appropriate.
+triggers:
+  - always
+---
+# Graybeard Skill: Stop
 
-**Purpose:** stop
+Purpose: save 100% of execution tokens by halting when code modification is inappropriate or dangerous.
 
-Use this capability only when selected by Sextant's router or when the situation clearly requires it. Keep state compact and evidence-based. Never dump hidden chain-of-thought; record only facts, uncertainty, invariants, alternatives, decisions, and validation that materially affect engineering outcomes.
+Actions:
+- halt immediately if the problem is already solved in the codebase;
+- halt immediately if the user request targets a symptom at the wrong architectural layer;
+- halt immediately if the request contradicts explicit invariants, test contracts, or security rules;
+- output clear, reproducible evidence explaining why no code was changed.
+
+Output state:
+STOP_REASON, EVIDENCE.

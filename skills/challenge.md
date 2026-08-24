@@ -1,5 +1,21 @@
-# Sextant: challenge
+---
+name: graybeard-challenge
+description: Try to falsify the leading solution and identify edge case failure paths before implementation.
+triggers:
+  - high
+  - security
+  - migration
+  - concurrency
+  - architecture
+---
+# Graybeard Skill: Challenge
 
-**Purpose:** challenge
+Purpose: attack the proposed decision before writing code to prevent regressions.
 
-Use this capability only when selected by Sextant's router or when the situation clearly requires it. Keep state compact and evidence-based. Never dump hidden chain-of-thought; record only facts, uncertainty, invariants, alternatives, decisions, and validation that materially affect engineering outcomes.
+Actions:
+- actively seek counterexamples to the proposed fix;
+- test edge cases mentally or with quick scratch checks (nulls, empty collections, races, tenant leakage, retries, rollbacks);
+- if the solution introduces new invariants or hidden coupling, reject it in favor of a simpler one.
+
+Output state:
+FALSIFICATION_ATTEMPTS, SURVIVING_DECISION.

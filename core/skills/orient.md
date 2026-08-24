@@ -1,4 +1,10 @@
-# Sextant Skill: Orient
+---
+name: graybeard-orient
+description: Map the smallest relevant repository surface and inspect call sites before changing code.
+triggers:
+  - always
+---
+# Graybeard Skill: Orient
 
 Purpose: establish where the agent is in the repository before making a consequential change.
 

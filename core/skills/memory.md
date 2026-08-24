@@ -1,13 +1,18 @@
-# Sextant Skill: Memory
+---
+name: graybeard-memory
+description: Retrieve and store durable engineering decisions and invariants across sessions.
+triggers:
+  - repeat
+  - repository
+---
+# Graybeard Skill: Memory
 
-Purpose: retain durable engineering decisions, not conversation transcripts.
+Purpose: preserve architectural decisions and invariants across agent interactions.
 
-Persist only decisions likely to affect future work:
-- decision;
-- invariant or constraint;
-- evidence summary;
-- confidence;
-- affected area;
-- expiry/revisit trigger when useful.
+Actions:
+- query `.graybeard/decisions.json` for prior invariant rulings in this domain;
+- avoid re-debating settled architectural decisions;
+- record new invariants and decisions when explicit consensus is reached.
 
-Do not store speculative thoughts, hidden chain-of-thought, secrets, credentials, or irrelevant context.
+Output state:
+RECALLED_DECISIONS, STORED_DECISION.

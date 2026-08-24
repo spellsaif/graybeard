@@ -1,5 +1,20 @@
-# Sextant: orient
+---
+name: graybeard-orient
+description: Map the smallest relevant repository surface and inspect call sites before changing code.
+triggers:
+  - always
+---
+# Graybeard Skill: Orient
 
-**Purpose:** orient
+Purpose: establish where the agent is in the repository before making a consequential change.
 
-Use this capability only when selected by Sextant's router or when the situation clearly requires it. Keep state compact and evidence-based. Never dump hidden chain-of-thought; record only facts, uncertainty, invariants, alternatives, decisions, and validation that materially affect engineering outcomes.
+Actions:
+- identify the smallest relevant entry points, modules, tests, configuration and dependency boundaries;
+- inspect references/call sites before editing a definition;
+- prefer cheap repository evidence over speculative explanation;
+- record only facts that materially affect the current decision.
+
+Output state:
+FACTS, RELEVANT_PATHS, UNKNOWN.
+
+Do not perform a repository-wide tour unless the task actually crosses boundaries.

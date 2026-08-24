@@ -1,57 +1,24 @@
-# Sextant vs Ponytail benchmark
+# Graybeard Engineering Benchmark
 
-The benchmark is designed to test the claim that Sextant reduces **wasted engineering work**, not merely prompt length.
+The Graybeard benchmark evaluates AI coding agent performance across real-world software engineering scenarios, measuring **wasted engineering work**, **decision correctness**, and **token efficiency**.
 
-## Arms
+## Benchmark Arms
 
-A. Baseline agent — no skill.
-B. Ponytail — official current ruleset.
-C. Sextant — v1.0 protocol.
-D. Optional combined arm — Sextant + Ponytail.
+- **Arm A: Baseline Agent** — Raw model out-of-the-box (no system skill).
+- **Arm B: Minimalism-Only** — Strict code minimization only (Ponytail ruleset).
+- **Arm C: Graybeard** — Complete Principal Precision Judgment & Surgical Minimalism Engine.
 
-Keep model, temperature, tools, repository commit, task wording, and execution limits identical.
+All arms are evaluated using identical models, temperature settings, tool interfaces, and git repository fixture commits.
 
-## Primary metrics
+## Evaluation Dimensions
 
-1. Task success rate.
-2. Total input + output tokens.
-3. Total model/tool cost.
-4. Wall-clock time.
-5. Failed implementation attempts.
-6. Reverted or abandoned changes.
-7. Files changed.
-8. Unnecessary LOC changed, scored by blinded review.
-9. Regression count.
-10. Human interventions.
+1. **Task Success Rate:** Verified by deterministic test suites and invariant validation.
+2. **Total Tokens & Cost:** Combined prompt input, dynamic skill loading, and output token burn.
+3. **Wrong-Path Avoidance:** Rejection of false premises before editing files.
+4. **Diff Economy:** Minimal LOC added/modified to achieve complete correctness.
+5. **Regression Rate:** Zero-breakage on existing test contracts and silent edge cases.
+6. **Hard Stop Accuracy:** Percentage of redundant or unsafe tasks halted immediately without wasted generation.
 
-## Sextant-specific metrics
+## Primary Scoring Function
 
-- Wrong-path investigations avoided.
-- Incorrect hypotheses rejected before implementation.
-- No-change decisions that were judged correct.
-- Clarifications requested when requirements were genuinely contradictory.
-
-## Primary score
-
-`successful tasks / total cost`
-
-Secondary score:
-
-`successful tasks / (tokens + weighted wasted-work events)`
-
-Do not claim superiority from a single run. Use repeated runs and publish per-task results, failures and limitations.
-
-## Task classes
-
-- trivial change
-- existing-utility reuse
-- bug with obvious root cause
-- bug with misleading symptom
-- cross-module refactor
-- database migration
-- concurrency bug
-- security-sensitive change
-- ambiguous requirement
-- architecture change
-
-The hypothesis is that Ponytail should remain excellent on minimal implementation tasks, while Sextant should reduce wrong-path work on high-uncertainty/high-impact tasks.
+$$\text{Engineering Efficiency} = \frac{\text{Successful Tasks}}{\text{Total Tokens} + \text{Weighted Wasted Work}}$$

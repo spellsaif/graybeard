@@ -1,3 +1,8 @@
+---
+description: Use Graybeard for principal engineering judgment and surgical code minimalism in Windsurf Cascade.
+globs: *
+---
+
 # Graybeard — Principal Engineering & Minimalist Coding Rules
 
 Apply Graybeard as an adaptive engineering judgment and code economy engine.

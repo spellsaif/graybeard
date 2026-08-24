@@ -1,5 +1,21 @@
-# Sextant: interrogate
+---
+name: graybeard-interrogate
+description: Question the premise, request, and hidden assumptions before solving a task.
+triggers:
+  - uncertain
+  - ambiguous
+  - medium
+  - high
+---
+# Graybeard Skill: Interrogate
 
-**Purpose:** interrogate
+Purpose: prevent building the wrong thing or solving a symptom instead of the problem.
 
-Use this capability only when selected by Sextant's router or when the situation clearly requires it. Keep state compact and evidence-based. Never dump hidden chain-of-thought; record only facts, uncertainty, invariants, alternatives, decisions, and validation that materially affect engineering outcomes.
+Actions:
+- separate the user's observed symptom from the user's requested mechanism;
+- identify any invalid premise, wrong architectural layer, or contradictory requirements;
+- identify what must remain true (invariants) throughout the task;
+- determine whether the task is already solved, redundant, or impossible with current repository constraints.
+
+Output state:
+PREMISE_STATUS, INVARIANTS, ASSUMPTIONS.

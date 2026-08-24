@@ -7,7 +7,9 @@ function validate(values) {
 export function riskScore({ uncertainty, impact, irreversibility, blastRadius }) {
   const values = [uncertainty, impact, irreversibility, blastRadius];
   validate(values);
-  return values.reduce((a, b) => a + b, 0) / values.length;
+  const avg = values.reduce((a, b) => a + b, 0) / values.length;
+  const maxFactor = Math.max(...values);
+  return Math.min(1, Math.max(avg, maxFactor * 0.75));
 }
 
 export function calculateRisk(factors) {

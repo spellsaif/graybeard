@@ -1,5 +1,22 @@
-# Sextant: surgery
+---
+name: graybeard-surgery
+description: Bound risky change surface and minimize blast radius for high-risk modifications.
+triggers:
+  - high
+  - migration
+  - security
+  - concurrency
+  - architecture
+---
+# Graybeard Skill: Surgery
 
-**Purpose:** surgery
+Purpose: prevent ripple effects and unintended side effects during high-risk edits.
 
-Use this capability only when selected by Sextant's router or when the situation clearly requires it. Keep state compact and evidence-based. Never dump hidden chain-of-thought; record only facts, uncertainty, invariants, alternatives, decisions, and validation that materially affect engineering outcomes.
+Actions:
+- restrict the change surface to a single semantic boundary;
+- define the exact file, symbol, or schema entry to modify;
+- avoid speculative refactoring in adjacent code while performing a targeted fix;
+- ensure rollback is trivial (clean, isolated diff).
+
+Output state:
+CHANGE_SURFACE, BLAST_RADIUS.

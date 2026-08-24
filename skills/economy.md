@@ -1,5 +1,18 @@
-# Sextant: economy
+---
+name: graybeard-economy
+description: Minimize implementation diff size and eliminate boilerplate after correctness is established.
+triggers:
+  - always
+---
+# Graybeard Skill: Economy
 
-**Purpose:** economy
+Purpose: write the smallest correct diff possible once the right decision is made.
 
-Use this capability only when selected by Sextant's router or when the situation clearly requires it. Keep state compact and evidence-based. Never dump hidden chain-of-thought; record only facts, uncertainty, invariants, alternatives, decisions, and validation that materially affect engineering outcomes.
+Actions:
+- reuse existing helpers, utilities, and standard libraries before adding new functions;
+- delete obsolete scaffolding or temporary debug code;
+- never add speculative wrappers, future-proofing shims, or unused parameters;
+- maintain strict aesthetic and idiomatic coherence with the existing codebase.
+
+Output state:
+DIFF_SIZE, REUSED_SYMBOLS.
