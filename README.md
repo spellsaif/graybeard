@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/logo.png" width="220" alt="Graybeard - The Principal Engineer AI Engine">
+  <img src="https://raw.githubusercontent.com/spellsaif/sextant/refs/heads/master/assets/logo.png" width="220" alt="Graybeard - The Principal Engineer AI Engine">
 </p>
 
 <h1 align="center">Graybeard 🧙‍♂️</h1>
