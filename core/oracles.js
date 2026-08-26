@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { execSync } from 'node:child_process';
+import { assertChangeSurface, detectInvariantViolation } from './guard.js';
 
 function exists(p) { return fs.existsSync(p); }
 
@@ -59,7 +60,7 @@ export function detectOracles(root = process.cwd()) {
   }
 
   // 6. .NET / C#
-  if (exists(path.join(root, '*.sln')) || exists(path.join(root, '*.csproj')) || fs.readdirSync(root).some(f => f.endsWith('.sln') || f.endsWith('.csproj'))) {
+  if (exists(path.join(root, '*.sln')) || exists(path.join(root, '*.csproj')) || (fs.existsSync(root) && fs.readdirSync(root).some(f => f.endsWith('.sln') || f.endsWith('.csproj')))) {
     oracles.push({ type: 'test', runner: 'dotnet', command: 'dotnet test', description: '.NET Test Suite' });
     oracles.push({ type: 'typecheck', runner: 'dotnet', command: 'dotnet build', description: '.NET Build Check' });
   }
@@ -138,5 +139,61 @@ export function verifyWorkspace(root = process.cwd(), { types = ['test', 'typech
     passedCount: results.filter(r => r.passed).length,
     failedCount: results.filter(r => !r.passed).length,
     results
+  };
+}
+
+export function verifyDecision({
+  root = process.cwd(),
+  decision = '',
+  invariant = '',
+  expectedBehavior = '',
+  plannedFiles = [],
+  actualDiff = null,
+  oracleTypes = ['test', 'typecheck', 'integrity']
+} = {}) {
+  // 1. Workspace / regression verification
+  const workspaceResult = verifyWorkspace(root, { types: oracleTypes });
+  const regressionPassed = workspaceResult.totalOracles === 0 || workspaceResult.verified || workspaceResult.failedCount === 0;
+
+  // 2. Boundary diff check
+  const boundaryCheck = assertChangeSurface({
+    planned: plannedFiles,
+    actualDiff,
+    root
+  });
+  const boundaryPassed = boundaryCheck.passed;
+
+  // 3. Invariant check
+  const invViolation = detectInvariantViolation({
+    proposedChange: decision,
+    invariants: invariant ? [invariant] : []
+  });
+  const invariantPassed = !invViolation.stop;
+
+  // 4. Economy check
+  const economyPassed = !boundaryCheck.locExceeded;
+
+  // 5. Behavior check
+  const behaviorPassed = regressionPassed && (Boolean(decision) || Boolean(expectedBehavior));
+
+  const breakdown = {
+    behavior: behaviorPassed ? 'PASS' : 'FAIL',
+    regression: regressionPassed ? 'PASS' : 'FAIL',
+    invariant: invariantPassed ? 'PASS' : 'FAIL',
+    boundary: boundaryPassed ? 'PASS' : 'FAIL',
+    economy: economyPassed ? 'PASS' : 'FAIL'
+  };
+
+  const allPassed = Object.values(breakdown).every(v => v === 'PASS');
+
+  return {
+    verified: allPassed,
+    breakdown,
+    summary: `Verification Proof: [Behavior: ${breakdown.behavior}, Regression: ${breakdown.regression}, Invariant: ${breakdown.invariant}, Boundary: ${breakdown.boundary}, Economy: ${breakdown.economy}]`,
+    details: {
+      workspace: workspaceResult,
+      boundary: boundaryCheck,
+      invariantViolation: invViolation.stop ? invViolation.evidence : null
+    }
   };
 }

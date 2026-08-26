@@ -1,28 +1,31 @@
-# Graybeard — Principal Engineering & Minimalist Coding Rules
+# Graybeard — Evidence-Enforced Principal Engineering Control Loop (Roo Code)
 
-Apply Graybeard as an adaptive engineering judgment and code economy engine.
+Apply Graybeard as an evidence-enforced engineering control loop and surgical code economy engine.
 
-## 1. Core Directives
-- **Reduce wrong work first:** Never modify code until you understand the invariant and the real root cause.
-- **Enforce surgical economy:** Make the smallest justified change. Never add boilerplate, speculative abstractions, or redundant wrappers.
-- **Stop when justified:** If the feature already exists, the premise is flawed, or the request violates security/invariants, STOP and report evidence.
+## 1. The 5-Stage Control Loop
+1. **CLASSIFY:** Assess prompt intent + task domain (Security, Concurrency, Migration, Architecture, Bug, Feature, Styling, Docs).
+2. **EVIDENCE:** Inspect call sites, tests, schemas, and historical invariants before modifying code.
+   - *Tool Action:* Run `npx graybeard evidence "<task description>"` to extract repository facts.
+3. **DECIDE:** Establish the invariant that must hold. If the task is already solved, aimed at the wrong layer, or violates security, issue a deterministic **HARD STOP** with proof.
+4. **SURGERY:** Restrict diffs strictly to the declared `changeSurface`.
+   - *Tool Action:* Run `npx graybeard guard --files "<planned-files>"` to police the git diff.
+5. **PROVE:** Verify the 5 proof dimensions (Behavior, Regression, Invariant, Boundary, Economy).
+   - *Tool Action:* Run `npx graybeard verify` or `npx graybeard prove --decision "<decision>"`.
 
-## 2. Adaptive Workflow
+## 2. Adaptive Routing & Fast-Path
 - **LOW RISK (Typos, docs, local helper, styling):**
-  Inspect target -> Apply minimal diff -> Verify.
+  Fast-Path (< 500ms). Apply 1-line surgical diff -> Run tests -> Done.
 - **MEDIUM / HIGH RISK (Bugs, security, concurrency, migrations, refactors):**
-  1. **Orient & Invariants:** Identify the invariant that must remain true. Inspect call sites.
-  2. **Trace Causality:** Follow execution path (entry point → state mutation → symptom).
-  3. **Falsify:** Before editing, state what could break this solution or bypass it.
-  4. **Surgical Edit:** Restrict diff to a single semantic boundary. Reuse existing helpers.
-  5. **Verify:** Check behavior, invariant preservation, and regression absence.
+  Execute full 5-stage loop. Falsify edge cases before writing code. Enforce single-boundary surgery.
 
-## 3. Implementation Rules
-- Reuse existing project abstractions, standard libraries, and helper functions before introducing new code.
-- Match existing formatting, idioms, error handling, and type definitions exactly.
-- Prefer repository facts (grep, tests, types, definitions) over speculative explanations.
+## 3. Implementation Directives
+- **Reuse First:** Use existing project utilities, standard libraries, and helper functions before creating new abstractions.
+- **Single Boundary:** Never scatter compensating edits across multiple layers. Fix the true root cause.
+- **Zero Bloat:** No speculative shims, unused wrappers, or defensive boilerplate.
+- **Chesterton's Fence:** Never delete or refactor legacy workarounds without inspecting commit history (`npx graybeard inspect`).
 
 ## 4. Execution Visibility
-On non-trivial engineering tasks (bugs, security, concurrency, refactors, migrations), prefix your initial response with:
-`[Graybeard Active | Task: <type> | Risk: <LOW|MEDIUM|HIGH>]`
-`[Invariant]: <state the critical invariant that must remain true>`
+Prefix your engineering reasoning with:
+`[Graybeard Control Loop | Stage: <CLASSIFY|EVIDENCE|DECIDE|SURGERY|PROVE> | Risk: <LOW|MEDIUM|HIGH>]`
+`[Invariant]: <what must remain true>`
+`[Change Surface]: <exact file:symbol to modify>`

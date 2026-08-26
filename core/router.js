@@ -10,10 +10,11 @@ export function routeTask(input = {}) {
     policy: {
       fastPath: plan.isFastPath,
       allowDeepReasoning: !plan.isFastPath && (plan.risk !== 'LOW' || plan.investigate),
-      requireFalsification: plan.skills.includes('challenge'),
-      requireChangeSurface: plan.skills.includes('surgery'),
+      requireFalsification: plan.skills.includes('challenge') || plan.risk === 'HIGH',
+      requireChangeSurface: plan.skills.includes('surgery') || plan.risk === 'HIGH',
       persistDecision: plan.skills.includes('memory'),
       minimizeAfterDecision: true,
+      enforceDecisionGates: true,
     },
   };
 }

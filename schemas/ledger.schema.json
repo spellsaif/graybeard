@@ -4,15 +4,40 @@
   "type": "object",
   "required": ["risk", "confidence", "facts", "invariants", "decision", "validation"],
   "properties": {
+    "stage": { "type": "string", "enum": ["CLASSIFY", "EVIDENCE", "TRACE", "CHALLENGE", "DECIDE", "SURGERY", "PROVE"] },
     "risk": { "enum": ["LOW", "MEDIUM", "HIGH"] },
     "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+    "taskType": { "type": "string" },
     "facts": { "type": "array", "items": { "type": "string" } },
     "unknown": { "type": "array", "items": { "type": "string" } },
+    "assumptions": { "type": "array", "items": { "type": "string" } },
     "invariants": { "type": "array", "items": { "type": "string" } },
+    "faultLocation": { "type": ["string", "object", "null"] },
+    "causePath": { "type": "array", "items": { "type": "string" } },
     "candidates": { "type": "array", "items": { "type": "string" } },
     "rejected": { "type": "array", "items": { "type": "string" } },
     "decision": { "type": "string" },
-    "validation": { "type": "array", "items": { "type": "string" } }
+    "survivingDecision": { "type": "string" },
+    "changeSurface": { "type": "array", "items": { "type": "string" } },
+    "falsificationAttempts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["hypothesis", "attack", "result"],
+        "properties": {
+          "hypothesis": { "type": "string" },
+          "attack": { "type": "string" },
+          "attackClass": { "type": "string" },
+          "result": { "type": "string" },
+          "evidence": { "type": "string" }
+        }
+      }
+    },
+    "validation": { "type": "array", "items": { "type": "string" } },
+    "testsRan": { "type": "array", "items": { "type": "string" } },
+    "allPassed": { "type": "boolean" },
+    "invariantsVerified": { "type": "array", "items": { "type": "string" } },
+    "stopReason": { "type": ["string", "null"] }
   },
-  "additionalProperties": false
+  "additionalProperties": true
 }

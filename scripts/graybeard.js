@@ -1,11 +1,14 @@
 #!/usr/bin/env node
 import fs from 'node:fs';
 import path from 'node:path';
-import { SKILL_DEFS, createLedger, decisionSummary } from '../core/index.js';
+import { SKILL_DEFS, PRIMITIVES, createLedger, decisionSummary } from '../core/index.js';
 import { routeTask } from '../core/router.js';
+import { inspectRepository, getDiff } from '../core/repository.js';
+import { analyzeTask } from '../core/evidence.js';
+import { assertChangeSurface, evaluateHardStops } from '../core/guard.js';
 import { createMemoryStore } from '../memory/store.js';
 import { detectHosts, installHost, installSkills, doctor, HOSTS } from '../core/installer.js';
-import { detectOracles, verifyWorkspace } from '../core/oracles.js';
+import { detectOracles, verifyWorkspace, verifyDecision } from '../core/oracles.js';
 
 const args = process.argv.slice(2);
 const command = args[0] ?? 'help';
@@ -27,9 +30,20 @@ function jsonFlag(name) {
 
 if (command === 'skills') {
   console.log(Object.entries(SKILL_DEFS).map(([name, v]) => `${name}\t${v.phase}\t${v.cost}\t${v.purpose}`).join('\n'));
+} else if (command === 'primitives') {
+  for (const [prim, skills] of Object.entries(PRIMITIVES)) {
+    console.log(`${prim}: ${skills.join(', ')}`);
+  }
 } else if (command === 'protocol') {
-  console.log('Graybeard 1.0 — Principal Engineering Judgment & Surgical Minimalism');
-  console.log('Orient → Invariants → Trace → Challenge (Falsify) → Decide → Surgery → Economy → Verify');
+  console.log('Graybeard 1.0 — 5-Stage Evidence-Enforced Control Loop');
+  console.log('1. CLASSIFY ──► 2. EVIDENCE ──► 3. DECIDE (Stop / Modify) ──► 4. SURGERY ──► 5. PROVE');
+} else if (command === 'inspect') {
+  console.log(JSON.stringify(inspectRepository(root), null, 2));
+} else if (command === 'evidence') {
+  const positionalText = args[1] && !args[1].startsWith('--') ? args[1] : '';
+  const taskText = flag('text', positionalText);
+  const result = analyzeTask({ text: taskText, root });
+  console.log(JSON.stringify(result, null, 2));
 } else if (command === 'route') {
   const positionalText = args[1] && !args[1].startsWith('--') ? args[1] : '';
   const taskText = flag('text', positionalText);
@@ -39,6 +53,16 @@ if (command === 'skills') {
     blastRadius: num('blast-radius', 0.5), confidence: num('confidence', 0.5), ledger: jsonFlag('ledger') ?? {},
   });
   console.log(JSON.stringify(plan, null, 2));
+} else if (command === 'guard' || command === 'diff') {
+  const plannedFiles = jsonFlag('planned') || (flag('files') ? flag('files').split(',') : []);
+  const check = assertChangeSurface({ planned: plannedFiles, root });
+  console.log(JSON.stringify(check, null, 2));
+} else if (command === 'prove') {
+  const plannedFiles = jsonFlag('planned') || (flag('files') ? flag('files').split(',') : []);
+  const decision = flag('decision', '');
+  const invariant = flag('invariant', '');
+  const proof = verifyDecision({ root, decision, invariant, plannedFiles });
+  console.log(JSON.stringify(proof, null, 2));
 } else if (command === 'ledger') {
   const ledger = createLedger(jsonFlag('json') ?? {});
   console.log(decisionSummary(ledger));
@@ -77,7 +101,7 @@ if (command === 'skills') {
   console.log(Object.entries(HOSTS).map(([id, h]) => `${id.padEnd(12)} ${h.label}`).join('\n'));
 } else {
   console.log(`
-Graybeard v1.0.0 — Principal Engineering & Surgical Minimalism Engine for AI Agents
+Graybeard v1.0.0 — Evidence-Enforced Principal Engineering Control Loop
 
 Usage:
   npx graybeard <command> [options]
@@ -87,11 +111,20 @@ Commands:
     --agent <name>      Target a specific agent (e.g. opencode, cursor, claude, windsurf, copilot)
     --all               Configure all supported host environments and standard skills
 
+  inspect               Generate complete repository snapshot (symbols, tests, schemas, invariants)
+  evidence [task-text]  Analyze task using prompt + repository evidence + change surface
+  guard                 Policing check comparing git diff against planned changeSurface
+    --files <list>      Comma-separated allowed files
+  prove                 Run 5-dimension proof (behavior, regression, invariant, boundary, economy)
+    --decision <str>    Decision text to verify
+    --invariant <str>   Durable invariant to verify
+
   doctor                Verify repository integration, host configuration, and deterministic oracles
   oracles               List detected compiler, linter, and test suite verification commands
   verify                Run all detected deterministic compiler and test verification oracles
   hosts                 List all supported AI agent hosts and their target files
   skills                List all on-demand Graybeard skills with their phases and purposes
+  primitives            List the 4 core primitives (TRUTH, JUDGMENT, SURGERY, PROOF)
 
   route [task-text]     Classify a task and generate an adaptive execution plan
     --text <text>       Task prompt text (or pass as positional argument)
@@ -101,9 +134,10 @@ Commands:
   memory --query <str>  Search durable decisions stored in .graybeard/decisions.json
 
 Examples:
-  npx graybeard init
-  npx graybeard route "change security badge background color to yellow"
+  npx graybeard inspect
+  npx graybeard evidence "prevent duplicate order charge"
+  npx graybeard guard --files "src/orders/idempotency.ts"
+  npx graybeard prove --decision "Add db uniqueness constraint"
   npx graybeard verify
-  npx graybeard doctor
 `);
 }
