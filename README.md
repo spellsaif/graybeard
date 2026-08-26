@@ -31,8 +31,9 @@
 - [5-Dimension Decision Proof](#-5-dimension-decision-proof)
 - [Deterministic Benchmark Suite (100 Tasks Across 4 Arms)](#-deterministic-benchmark-suite-100-tasks-across-4-arms)
 - [Supported Coding Agents & Installation](#-supported-coding-agents--installation)
+- [AI Coding Agent Playbooks](#-ai-coding-agent-playbooks)
 - [CLI Reference](#-cli-reference)
-- [Programmatic API](#-programmatic-api)
+- [Programmatic API & CI Integration](#-programmatic-api--ci-integration)
 - [License](#-license)
 
 ---
@@ -271,6 +272,115 @@ npx graybeard init --agent codex       # Codex / ChatGPT (AGENTS.md)
 
 ---
 
+## 📖 AI Coding Agent Playbooks
+
+### 1. Claude Code Playbook
+
+Claude Code automatically indexes `CLAUDE.md` and discovers skills in `.claude/skills/`.
+
+#### Automatic Daily Workflow:
+```bash
+# In your terminal:
+claude "Fix webhook duplicate billing race condition"
+```
+
+**What Claude Code does:**
+1. Loads `CLAUDE.md` and detects a `concurrency` / `HIGH` risk task.
+2. Runs `npx graybeard evidence "Fix webhook duplicate billing..."` to extract callers and DB schema.
+3. Outputs the active invariant: `[Invariant]: Exactly 1 charge per idempotency_key`.
+4. Executes single-boundary surgery on `src/db/migrations/004_idempotency.sql`.
+5. Runs `npx graybeard guard --files "src/db/migrations/004_idempotency.sql"` to confirm zero unauthorized files were modified.
+
+#### Interactive Slash Commands in Claude Code:
+- `/trace`: Manually instruct Claude Code to trace the execution path before writing code.
+- `/challenge`: Force Claude Code to attack the proposed solution with concurrency/auth edge cases.
+- `/archaeology`: Direct Claude Code to check git history before modifying legacy code (Chesterton's Fence).
+
+---
+
+### 2. Cursor Playbook
+
+Cursor uses `.cursor/rules/graybeard.mdc` with native MDC frontmatter (`alwaysApply: true`, `globs: "*"`).
+
+#### Composer / Agent Mode Workflow:
+1. Open Cursor Composer (`Ctrl+I` / `Cmd+I`) or Agent Chat (`Ctrl+L` / `Cmd+L`).
+2. Type your prompt:
+   ```text
+   Ticket: Prevent stock balance going negative during flash sales.
+   ```
+3. **What Cursor does:**
+   - Detects Graybeard rules automatically.
+   - Outputs: `[Graybeard Active | Task: concurrency | Risk: HIGH]`.
+   - Avoids adding application-level mutexes; applies an atomic database decrement with `CHECK (balance >= 0)`.
+   - Before finishing, verifies against the surgical change surface.
+
+---
+
+### 3. Windsurf (Cascade) Playbook
+
+Windsurf Cascade reads `.windsurf/rules/graybeard.md`.
+
+#### Cascade Chat Workflow:
+1. In Cascade, enter your instruction:
+   ```text
+   Clean up legacy syncWorker.ts and remove the 500ms delay.
+   ```
+2. **What Cascade does:**
+   - Evaluates the legacy task $\rightarrow$ Triggers Chesterton's Fence (`archaeology`).
+   - Runs `git log -S "500ms"` in terminal tool.
+   - Reports: *"This 500ms delay enforces the 2 req/sec rate limit for the vendor billing API. Deleting it will cause HTTP 429 outages."*
+   - Halts deterministically without breaking production.
+
+---
+
+### 4. OpenCode Playbook
+
+OpenCode utilizes `AGENTS.md` and `.opencode/skills/` referenced in `opencode.json`.
+
+#### OpenCode Workflow:
+1. Start an OpenCode task:
+   ```bash
+   opencode "Refactor auth middleware to support multi-tenant organization IDs"
+   ```
+2. OpenCode follows the 5-stage loop:
+   - **CLASSIFY:** `security` / `HIGH` risk.
+   - **EVIDENCE:** Inspects JWT parser and database query helpers.
+   - **DECIDE:** Declares invariant: `Every database query must enforce WHERE tenant_id = current_tenant`.
+   - **SURGERY:** Modifies only `src/middleware/tenant.ts`.
+   - **PROVE:** Runs test suite oracles with zero regressions.
+
+---
+
+### 5. Antigravity / Gemini Playbook
+
+Antigravity uses `GEMINI.md` and `.agents/skills/` with native agent delegation (`research`, `self`).
+
+#### Antigravity Workflow:
+1. Prompt in Antigravity chat:
+   ```text
+   Add a helper to format user dates in relative time (e.g. '2 hours ago').
+   ```
+2. Antigravity classifies as `styling/low-risk` $\rightarrow$ activates **Fast-Path**.
+3. Reuses native `Intl.RelativeTimeFormat` without importing heavy date libraries like moment.js.
+4. Completes task in `< 500ms` with a 3-line surgical diff.
+
+---
+
+### 6. GitHub Copilot Playbook
+
+Copilot reads `.github/copilot-instructions.md`.
+
+#### Copilot Chat / PR Workflow:
+1. Ask Copilot in VS Code / GitHub:
+   ```text
+   How should we fix the duplicate order submission problem?
+   ```
+2. Copilot enforces Graybeard's root-cause principle:
+   - Rejects UI button debouncing suggestions.
+   - Provides a server-side idempotency migration and single-boundary transaction logic.
+
+---
+
 ## 🛠️ CLI Reference
 
 ```bash
@@ -299,7 +409,9 @@ npm run benchmark:score
 
 ---
 
-## 💻 Programmatic API
+## 💻 Programmatic API & CI Integration
+
+Graybeard is also a fully-typed npm library (`graybeard`) for custom agent loops and CI/CD pipelines:
 
 ```javascript
 import {
@@ -311,7 +423,7 @@ import {
   createSession
 } from 'graybeard';
 
-// 1. Evidence-First Task Analysis
+// 1. Evidence-First Task Analysis in Custom Agent Frameworks
 const analysis = analyzeTask({
   text: "Fix race condition in user registration balance",
   root: process.cwd()
@@ -319,10 +431,15 @@ const analysis = analyzeTask({
 console.log(analysis.risk); // 'HIGH'
 console.log(analysis.factors); // { uncertainty, impact, irreversibility, blastRadius }
 
-// 2. 5-Stage Session Lifecycle
-const session = createSession({ text: "Add unique index", root: process.cwd() });
-session.observe({ faultLocation: 'src/db/schema.sql', causePath: ['auth', 'db'] });
-session.transitionStage('DECIDE');
+// 2. GitHub Actions PR Diff Policing
+const check = assertChangeSurface({
+  planned: ['src/db/migrations/004_idempotency.sql'],
+  maxLocBudget: 50
+});
+if (!check.passed) {
+  console.error("PR failed change surface boundary check:", check.violations);
+  process.exit(1);
+}
 ```
 
 ---
