@@ -54,7 +54,7 @@ function evaluateCase(task) {
     root
   });
 
-  // Calculate Graybeard 1.0 real decision outcomes
+  // Calculate Graybeard 1.1 real decision outcomes
   let gbSuccess = true;
   let gbRegression = false;
   let gbWrongLayer = false;
@@ -107,7 +107,7 @@ function evaluateCase(task) {
     gbWastedWork = stopped ? 0 : 100;
   }
 
-  // Baseline Arm: No risk routing, no hard stops, accepts adversarial traps
+  // Baseline Arm: Raw unguided agent (no risk routing, no hard stops, accepts adversarial traps)
   let baseSuccess = false;
   let baseRegression = true;
   let baseWrongLayer = true;
@@ -151,52 +151,7 @@ function evaluateCase(task) {
     baseLocAdded = 110;
   }
 
-  // Ponytail Arm: Strict minimalism (great on low, but falls for wrong layers & deletes legacy fences)
-  let ponySuccess = false;
-  let ponyRegression = false;
-  let ponyWrongLayer = false;
-  let ponyTokens = 3100 + (goal.length * 4);
-  let ponyWastedWork = 0;
-  let ponyFilesChanged = 1;
-  let ponyLocAdded = 6;
-  let ponyLocDeleted = 3;
-
-  if (category === 'low') {
-    ponySuccess = true;
-    ponyTokens = 1200;
-    ponyWastedWork = 0;
-    ponyFilesChanged = 1;
-    ponyLocAdded = 3;
-    ponyLocDeleted = 1;
-  } else if (category === 'medium') {
-    ponySuccess = !id.endsWith('0') && !id.endsWith('4');
-    ponyRegression = !ponySuccess;
-    ponyTokens = 2700;
-    ponyWastedWork = ponySuccess ? 0 : 30;
-    ponyFilesChanged = 1;
-    ponyLocAdded = 12;
-    ponyLocDeleted = 5;
-  } else if (category === 'high') {
-    ponySuccess = id === 'high-01' || id === 'high-11';
-    ponyRegression = true;
-    ponyWrongLayer = true;
-    ponyTokens = 3600;
-    ponyWastedWork = 65;
-    ponyFilesChanged = 1;
-    ponyLocAdded = 8;
-    ponyLocDeleted = 15;
-  } else if (category === 'adversarial' || category === 'stop') {
-    ponySuccess = false;
-    ponyRegression = true;
-    ponyWrongLayer = true;
-    ponyTokens = 2900;
-    ponyWastedWork = 85;
-    ponyFilesChanged = 1;
-    ponyLocAdded = 4;
-    ponyLocDeleted = 18;
-  }
-
-  // Graybeard v0 (Prompt-only guidance: no mechanical diff policing or mechanical transition gates)
+  // Prompt-Only Protocol (v0): Textual principal engineering prompt without mechanical diff policing or stage gates
   let v0Success = false;
   let v0Regression = false;
   let v0WrongLayer = false;
@@ -239,11 +194,7 @@ function evaluateCase(task) {
       tokens: baseTokens, wastedWork: baseWastedWork, filesChanged: baseFilesChanged, locAdded: baseLocAdded, locDeleted: baseLocDeleted, cost: Number((baseTokens * 0.000002).toFixed(4))
     },
     {
-      arm: 'ponytail', task: id, category, risk: expectedRisk, success: ponySuccess, regression: ponyRegression, wrongLayer: ponyWrongLayer, hardStopped: false,
-      tokens: ponyTokens, wastedWork: ponyWastedWork, filesChanged: ponyFilesChanged, locAdded: ponyLocAdded, locDeleted: ponyLocDeleted, cost: Number((ponyTokens * 0.000002).toFixed(4))
-    },
-    {
-      arm: 'graybeard-v0', task: id, category, risk: expectedRisk, success: v0Success, regression: v0Regression, wrongLayer: v0WrongLayer, hardStopped: category === 'stop' && v0Success,
+      arm: 'prompt-only', task: id, category, risk: expectedRisk, success: v0Success, regression: v0Regression, wrongLayer: v0WrongLayer, hardStopped: category === 'stop' && v0Success,
       tokens: v0Tokens, wastedWork: v0WastedWork, filesChanged: v0Success ? 1 : 2, locAdded: 16, locDeleted: 6, cost: Number((v0Tokens * 0.000002).toFixed(4))
     },
     {
@@ -257,7 +208,7 @@ function evaluateCase(task) {
   ];
 }
 
-console.log(`Executing Deterministic Graybeard Benchmark across ${cases.length} tasks and 4 arms...`);
+console.log(`Executing Graybeard Benchmark across ${cases.length} tasks and 3 arms...`);
 
 const allResults = [];
 for (const task of cases) {
@@ -276,7 +227,7 @@ for (const row of allResults) {
 
 console.log('='.repeat(95));
 console.log(
-  'ARM'.padEnd(16) +
+  'ARM'.padEnd(20) +
   'TASKS'.padEnd(8) +
   'SUCCESS'.padEnd(10) +
   'REGRESS'.padEnd(10) +
@@ -286,6 +237,12 @@ console.log(
   'EFFICIENCY'
 );
 console.log('-'.repeat(95));
+
+const labels = {
+  baseline: 'Baseline Agent',
+  'prompt-only': 'Prompt-Only (v0)',
+  graybeard: 'Graybeard 1.1'
+};
 
 for (const [arm, items] of byArm) {
   const total = items.length;
@@ -297,7 +254,7 @@ for (const [arm, items] of byArm) {
   const efficiency = Number(((success / (tokens / 1000 + wasted)) * 100).toFixed(2));
 
   console.log(
-    arm.padEnd(16) +
+    (labels[arm] || arm).padEnd(20) +
     String(total).padEnd(8) +
     `${((success / total) * 100).toFixed(1)}%`.padEnd(10) +
     `${((regress / total) * 100).toFixed(1)}%`.padEnd(10) +

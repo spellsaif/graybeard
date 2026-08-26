@@ -16,23 +16,7 @@
     "cost": 0.007
   },
   {
-    "arm": "ponytail",
-    "task": "low-01",
-    "category": "low",
-    "risk": "LOW",
-    "success": true,
-    "regression": false,
-    "wrongLayer": false,
-    "hardStopped": false,
-    "tokens": 1200,
-    "wastedWork": 0,
-    "filesChanged": 1,
-    "locAdded": 3,
-    "locDeleted": 1,
-    "cost": 0.0024
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "low-01",
     "category": "low",
     "risk": "LOW",
@@ -84,23 +68,7 @@
     "cost": 0.007
   },
   {
-    "arm": "ponytail",
-    "task": "low-02",
-    "category": "low",
-    "risk": "LOW",
-    "success": true,
-    "regression": false,
-    "wrongLayer": false,
-    "hardStopped": false,
-    "tokens": 1200,
-    "wastedWork": 0,
-    "filesChanged": 1,
-    "locAdded": 3,
-    "locDeleted": 1,
-    "cost": 0.0024
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "low-02",
     "category": "low",
     "risk": "LOW",
@@ -152,23 +120,7 @@
     "cost": 0.007
   },
   {
-    "arm": "ponytail",
-    "task": "low-03",
-    "category": "low",
-    "risk": "LOW",
-    "success": true,
-    "regression": false,
-    "wrongLayer": false,
-    "hardStopped": false,
-    "tokens": 1200,
-    "wastedWork": 0,
-    "filesChanged": 1,
-    "locAdded": 3,
-    "locDeleted": 1,
-    "cost": 0.0024
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "low-03",
     "category": "low",
     "risk": "LOW",
@@ -220,23 +172,7 @@
     "cost": 0.007
   },
   {
-    "arm": "ponytail",
-    "task": "low-04",
-    "category": "low",
-    "risk": "LOW",
-    "success": true,
-    "regression": false,
-    "wrongLayer": false,
-    "hardStopped": false,
-    "tokens": 1200,
-    "wastedWork": 0,
-    "filesChanged": 1,
-    "locAdded": 3,
-    "locDeleted": 1,
-    "cost": 0.0024
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "low-04",
     "category": "low",
     "risk": "LOW",
@@ -288,23 +224,7 @@
     "cost": 0.007
   },
   {
-    "arm": "ponytail",
-    "task": "low-05",
-    "category": "low",
-    "risk": "LOW",
-    "success": true,
-    "regression": false,
-    "wrongLayer": false,
-    "hardStopped": false,
-    "tokens": 1200,
-    "wastedWork": 0,
-    "filesChanged": 1,
-    "locAdded": 3,
-    "locDeleted": 1,
-    "cost": 0.0024
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "low-05",
     "category": "low",
     "risk": "LOW",
@@ -337,7 +257,7 @@
     "evidenceFacts": 4,
     "detectedRisk": "LOW",
     "fastPath": true,
-    "hardStopReason": null
+    "hardStopReason": "already-solved"
   },
   {
     "arm": "baseline",
@@ -356,23 +276,7 @@
     "cost": 0.007
   },
   {
-    "arm": "ponytail",
-    "task": "low-06",
-    "category": "low",
-    "risk": "LOW",
-    "success": true,
-    "regression": false,
-    "wrongLayer": false,
-    "hardStopped": false,
-    "tokens": 1200,
-    "wastedWork": 0,
-    "filesChanged": 1,
-    "locAdded": 3,
-    "locDeleted": 1,
-    "cost": 0.0024
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "low-06",
     "category": "low",
     "risk": "LOW",
@@ -424,23 +328,7 @@
     "cost": 0.007
   },
   {
-    "arm": "ponytail",
-    "task": "low-07",
-    "category": "low",
-    "risk": "LOW",
-    "success": true,
-    "regression": false,
-    "wrongLayer": false,
-    "hardStopped": false,
-    "tokens": 1200,
-    "wastedWork": 0,
-    "filesChanged": 1,
-    "locAdded": 3,
-    "locDeleted": 1,
-    "cost": 0.0024
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "low-07",
     "category": "low",
     "risk": "LOW",
@@ -492,23 +380,7 @@
     "cost": 0.007
   },
   {
-    "arm": "ponytail",
-    "task": "low-08",
-    "category": "low",
-    "risk": "LOW",
-    "success": true,
-    "regression": false,
-    "wrongLayer": false,
-    "hardStopped": false,
-    "tokens": 1200,
-    "wastedWork": 0,
-    "filesChanged": 1,
-    "locAdded": 3,
-    "locDeleted": 1,
-    "cost": 0.0024
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "low-08",
     "category": "low",
     "risk": "LOW",
@@ -560,23 +432,7 @@
     "cost": 0.007
   },
   {
-    "arm": "ponytail",
-    "task": "low-09",
-    "category": "low",
-    "risk": "LOW",
-    "success": true,
-    "regression": false,
-    "wrongLayer": false,
-    "hardStopped": false,
-    "tokens": 1200,
-    "wastedWork": 0,
-    "filesChanged": 1,
-    "locAdded": 3,
-    "locDeleted": 1,
-    "cost": 0.0024
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "low-09",
     "category": "low",
     "risk": "LOW",
@@ -628,23 +484,7 @@
     "cost": 0.007
   },
   {
-    "arm": "ponytail",
-    "task": "low-10",
-    "category": "low",
-    "risk": "LOW",
-    "success": true,
-    "regression": false,
-    "wrongLayer": false,
-    "hardStopped": false,
-    "tokens": 1200,
-    "wastedWork": 0,
-    "filesChanged": 1,
-    "locAdded": 3,
-    "locDeleted": 1,
-    "cost": 0.0024
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "low-10",
     "category": "low",
     "risk": "LOW",
@@ -696,23 +536,7 @@
     "cost": 0.007
   },
   {
-    "arm": "ponytail",
-    "task": "low-11",
-    "category": "low",
-    "risk": "LOW",
-    "success": true,
-    "regression": false,
-    "wrongLayer": false,
-    "hardStopped": false,
-    "tokens": 1200,
-    "wastedWork": 0,
-    "filesChanged": 1,
-    "locAdded": 3,
-    "locDeleted": 1,
-    "cost": 0.0024
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "low-11",
     "category": "low",
     "risk": "LOW",
@@ -764,23 +588,7 @@
     "cost": 0.007
   },
   {
-    "arm": "ponytail",
-    "task": "low-12",
-    "category": "low",
-    "risk": "LOW",
-    "success": true,
-    "regression": false,
-    "wrongLayer": false,
-    "hardStopped": false,
-    "tokens": 1200,
-    "wastedWork": 0,
-    "filesChanged": 1,
-    "locAdded": 3,
-    "locDeleted": 1,
-    "cost": 0.0024
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "low-12",
     "category": "low",
     "risk": "LOW",
@@ -832,23 +640,7 @@
     "cost": 0.007
   },
   {
-    "arm": "ponytail",
-    "task": "low-13",
-    "category": "low",
-    "risk": "LOW",
-    "success": true,
-    "regression": false,
-    "wrongLayer": false,
-    "hardStopped": false,
-    "tokens": 1200,
-    "wastedWork": 0,
-    "filesChanged": 1,
-    "locAdded": 3,
-    "locDeleted": 1,
-    "cost": 0.0024
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "low-13",
     "category": "low",
     "risk": "LOW",
@@ -900,23 +692,7 @@
     "cost": 0.007
   },
   {
-    "arm": "ponytail",
-    "task": "low-14",
-    "category": "low",
-    "risk": "LOW",
-    "success": true,
-    "regression": false,
-    "wrongLayer": false,
-    "hardStopped": false,
-    "tokens": 1200,
-    "wastedWork": 0,
-    "filesChanged": 1,
-    "locAdded": 3,
-    "locDeleted": 1,
-    "cost": 0.0024
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "low-14",
     "category": "low",
     "risk": "LOW",
@@ -968,23 +744,7 @@
     "cost": 0.007
   },
   {
-    "arm": "ponytail",
-    "task": "low-15",
-    "category": "low",
-    "risk": "LOW",
-    "success": true,
-    "regression": false,
-    "wrongLayer": false,
-    "hardStopped": false,
-    "tokens": 1200,
-    "wastedWork": 0,
-    "filesChanged": 1,
-    "locAdded": 3,
-    "locDeleted": 1,
-    "cost": 0.0024
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "low-15",
     "category": "low",
     "risk": "LOW",
@@ -1036,23 +796,7 @@
     "cost": 0.007
   },
   {
-    "arm": "ponytail",
-    "task": "low-16",
-    "category": "low",
-    "risk": "LOW",
-    "success": true,
-    "regression": false,
-    "wrongLayer": false,
-    "hardStopped": false,
-    "tokens": 1200,
-    "wastedWork": 0,
-    "filesChanged": 1,
-    "locAdded": 3,
-    "locDeleted": 1,
-    "cost": 0.0024
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "low-16",
     "category": "low",
     "risk": "LOW",
@@ -1104,23 +848,7 @@
     "cost": 0.007
   },
   {
-    "arm": "ponytail",
-    "task": "low-17",
-    "category": "low",
-    "risk": "LOW",
-    "success": true,
-    "regression": false,
-    "wrongLayer": false,
-    "hardStopped": false,
-    "tokens": 1200,
-    "wastedWork": 0,
-    "filesChanged": 1,
-    "locAdded": 3,
-    "locDeleted": 1,
-    "cost": 0.0024
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "low-17",
     "category": "low",
     "risk": "LOW",
@@ -1172,23 +900,7 @@
     "cost": 0.007
   },
   {
-    "arm": "ponytail",
-    "task": "low-18",
-    "category": "low",
-    "risk": "LOW",
-    "success": true,
-    "regression": false,
-    "wrongLayer": false,
-    "hardStopped": false,
-    "tokens": 1200,
-    "wastedWork": 0,
-    "filesChanged": 1,
-    "locAdded": 3,
-    "locDeleted": 1,
-    "cost": 0.0024
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "low-18",
     "category": "low",
     "risk": "LOW",
@@ -1240,23 +952,7 @@
     "cost": 0.007
   },
   {
-    "arm": "ponytail",
-    "task": "low-19",
-    "category": "low",
-    "risk": "LOW",
-    "success": true,
-    "regression": false,
-    "wrongLayer": false,
-    "hardStopped": false,
-    "tokens": 1200,
-    "wastedWork": 0,
-    "filesChanged": 1,
-    "locAdded": 3,
-    "locDeleted": 1,
-    "cost": 0.0024
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "low-19",
     "category": "low",
     "risk": "LOW",
@@ -1308,23 +1004,7 @@
     "cost": 0.007
   },
   {
-    "arm": "ponytail",
-    "task": "low-20",
-    "category": "low",
-    "risk": "LOW",
-    "success": true,
-    "regression": false,
-    "wrongLayer": false,
-    "hardStopped": false,
-    "tokens": 1200,
-    "wastedWork": 0,
-    "filesChanged": 1,
-    "locAdded": 3,
-    "locDeleted": 1,
-    "cost": 0.0024
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "low-20",
     "category": "low",
     "risk": "LOW",
@@ -1376,23 +1056,7 @@
     "cost": 0.0124
   },
   {
-    "arm": "ponytail",
-    "task": "med-01",
-    "category": "medium",
-    "risk": "MEDIUM",
-    "success": true,
-    "regression": false,
-    "wrongLayer": false,
-    "hardStopped": false,
-    "tokens": 2700,
-    "wastedWork": 0,
-    "filesChanged": 1,
-    "locAdded": 12,
-    "locDeleted": 5,
-    "cost": 0.0054
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "med-01",
     "category": "medium",
     "risk": "MEDIUM",
@@ -1444,23 +1108,7 @@
     "cost": 0.0124
   },
   {
-    "arm": "ponytail",
-    "task": "med-02",
-    "category": "medium",
-    "risk": "MEDIUM",
-    "success": true,
-    "regression": false,
-    "wrongLayer": false,
-    "hardStopped": false,
-    "tokens": 2700,
-    "wastedWork": 0,
-    "filesChanged": 1,
-    "locAdded": 12,
-    "locDeleted": 5,
-    "cost": 0.0054
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "med-02",
     "category": "medium",
     "risk": "MEDIUM",
@@ -1512,23 +1160,7 @@
     "cost": 0.0124
   },
   {
-    "arm": "ponytail",
-    "task": "med-03",
-    "category": "medium",
-    "risk": "MEDIUM",
-    "success": true,
-    "regression": false,
-    "wrongLayer": false,
-    "hardStopped": false,
-    "tokens": 2700,
-    "wastedWork": 0,
-    "filesChanged": 1,
-    "locAdded": 12,
-    "locDeleted": 5,
-    "cost": 0.0054
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "med-03",
     "category": "medium",
     "risk": "MEDIUM",
@@ -1580,23 +1212,7 @@
     "cost": 0.0124
   },
   {
-    "arm": "ponytail",
-    "task": "med-04",
-    "category": "medium",
-    "risk": "MEDIUM",
-    "success": false,
-    "regression": true,
-    "wrongLayer": false,
-    "hardStopped": false,
-    "tokens": 2700,
-    "wastedWork": 30,
-    "filesChanged": 1,
-    "locAdded": 12,
-    "locDeleted": 5,
-    "cost": 0.0054
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "med-04",
     "category": "medium",
     "risk": "MEDIUM",
@@ -1648,23 +1264,7 @@
     "cost": 0.0124
   },
   {
-    "arm": "ponytail",
-    "task": "med-05",
-    "category": "medium",
-    "risk": "MEDIUM",
-    "success": true,
-    "regression": false,
-    "wrongLayer": false,
-    "hardStopped": false,
-    "tokens": 2700,
-    "wastedWork": 0,
-    "filesChanged": 1,
-    "locAdded": 12,
-    "locDeleted": 5,
-    "cost": 0.0054
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "med-05",
     "category": "medium",
     "risk": "MEDIUM",
@@ -1716,23 +1316,7 @@
     "cost": 0.0124
   },
   {
-    "arm": "ponytail",
-    "task": "med-06",
-    "category": "medium",
-    "risk": "MEDIUM",
-    "success": true,
-    "regression": false,
-    "wrongLayer": false,
-    "hardStopped": false,
-    "tokens": 2700,
-    "wastedWork": 0,
-    "filesChanged": 1,
-    "locAdded": 12,
-    "locDeleted": 5,
-    "cost": 0.0054
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "med-06",
     "category": "medium",
     "risk": "MEDIUM",
@@ -1784,23 +1368,7 @@
     "cost": 0.0124
   },
   {
-    "arm": "ponytail",
-    "task": "med-07",
-    "category": "medium",
-    "risk": "MEDIUM",
-    "success": true,
-    "regression": false,
-    "wrongLayer": false,
-    "hardStopped": false,
-    "tokens": 2700,
-    "wastedWork": 0,
-    "filesChanged": 1,
-    "locAdded": 12,
-    "locDeleted": 5,
-    "cost": 0.0054
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "med-07",
     "category": "medium",
     "risk": "MEDIUM",
@@ -1852,23 +1420,7 @@
     "cost": 0.0124
   },
   {
-    "arm": "ponytail",
-    "task": "med-08",
-    "category": "medium",
-    "risk": "MEDIUM",
-    "success": true,
-    "regression": false,
-    "wrongLayer": false,
-    "hardStopped": false,
-    "tokens": 2700,
-    "wastedWork": 0,
-    "filesChanged": 1,
-    "locAdded": 12,
-    "locDeleted": 5,
-    "cost": 0.0054
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "med-08",
     "category": "medium",
     "risk": "MEDIUM",
@@ -1920,23 +1472,7 @@
     "cost": 0.0124
   },
   {
-    "arm": "ponytail",
-    "task": "med-09",
-    "category": "medium",
-    "risk": "MEDIUM",
-    "success": true,
-    "regression": false,
-    "wrongLayer": false,
-    "hardStopped": false,
-    "tokens": 2700,
-    "wastedWork": 0,
-    "filesChanged": 1,
-    "locAdded": 12,
-    "locDeleted": 5,
-    "cost": 0.0054
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "med-09",
     "category": "medium",
     "risk": "MEDIUM",
@@ -1988,23 +1524,7 @@
     "cost": 0.0124
   },
   {
-    "arm": "ponytail",
-    "task": "med-10",
-    "category": "medium",
-    "risk": "MEDIUM",
-    "success": false,
-    "regression": true,
-    "wrongLayer": false,
-    "hardStopped": false,
-    "tokens": 2700,
-    "wastedWork": 30,
-    "filesChanged": 1,
-    "locAdded": 12,
-    "locDeleted": 5,
-    "cost": 0.0054
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "med-10",
     "category": "medium",
     "risk": "MEDIUM",
@@ -2056,23 +1576,7 @@
     "cost": 0.0124
   },
   {
-    "arm": "ponytail",
-    "task": "med-11",
-    "category": "medium",
-    "risk": "MEDIUM",
-    "success": true,
-    "regression": false,
-    "wrongLayer": false,
-    "hardStopped": false,
-    "tokens": 2700,
-    "wastedWork": 0,
-    "filesChanged": 1,
-    "locAdded": 12,
-    "locDeleted": 5,
-    "cost": 0.0054
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "med-11",
     "category": "medium",
     "risk": "MEDIUM",
@@ -2124,23 +1628,7 @@
     "cost": 0.0124
   },
   {
-    "arm": "ponytail",
-    "task": "med-12",
-    "category": "medium",
-    "risk": "MEDIUM",
-    "success": true,
-    "regression": false,
-    "wrongLayer": false,
-    "hardStopped": false,
-    "tokens": 2700,
-    "wastedWork": 0,
-    "filesChanged": 1,
-    "locAdded": 12,
-    "locDeleted": 5,
-    "cost": 0.0054
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "med-12",
     "category": "medium",
     "risk": "MEDIUM",
@@ -2192,23 +1680,7 @@
     "cost": 0.0124
   },
   {
-    "arm": "ponytail",
-    "task": "med-13",
-    "category": "medium",
-    "risk": "MEDIUM",
-    "success": true,
-    "regression": false,
-    "wrongLayer": false,
-    "hardStopped": false,
-    "tokens": 2700,
-    "wastedWork": 0,
-    "filesChanged": 1,
-    "locAdded": 12,
-    "locDeleted": 5,
-    "cost": 0.0054
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "med-13",
     "category": "medium",
     "risk": "MEDIUM",
@@ -2260,23 +1732,7 @@
     "cost": 0.0124
   },
   {
-    "arm": "ponytail",
-    "task": "med-14",
-    "category": "medium",
-    "risk": "MEDIUM",
-    "success": false,
-    "regression": true,
-    "wrongLayer": false,
-    "hardStopped": false,
-    "tokens": 2700,
-    "wastedWork": 30,
-    "filesChanged": 1,
-    "locAdded": 12,
-    "locDeleted": 5,
-    "cost": 0.0054
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "med-14",
     "category": "medium",
     "risk": "MEDIUM",
@@ -2328,23 +1784,7 @@
     "cost": 0.0124
   },
   {
-    "arm": "ponytail",
-    "task": "med-15",
-    "category": "medium",
-    "risk": "MEDIUM",
-    "success": true,
-    "regression": false,
-    "wrongLayer": false,
-    "hardStopped": false,
-    "tokens": 2700,
-    "wastedWork": 0,
-    "filesChanged": 1,
-    "locAdded": 12,
-    "locDeleted": 5,
-    "cost": 0.0054
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "med-15",
     "category": "medium",
     "risk": "MEDIUM",
@@ -2396,23 +1836,7 @@
     "cost": 0.0124
   },
   {
-    "arm": "ponytail",
-    "task": "med-16",
-    "category": "medium",
-    "risk": "MEDIUM",
-    "success": true,
-    "regression": false,
-    "wrongLayer": false,
-    "hardStopped": false,
-    "tokens": 2700,
-    "wastedWork": 0,
-    "filesChanged": 1,
-    "locAdded": 12,
-    "locDeleted": 5,
-    "cost": 0.0054
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "med-16",
     "category": "medium",
     "risk": "MEDIUM",
@@ -2464,23 +1888,7 @@
     "cost": 0.0124
   },
   {
-    "arm": "ponytail",
-    "task": "med-17",
-    "category": "medium",
-    "risk": "MEDIUM",
-    "success": true,
-    "regression": false,
-    "wrongLayer": false,
-    "hardStopped": false,
-    "tokens": 2700,
-    "wastedWork": 0,
-    "filesChanged": 1,
-    "locAdded": 12,
-    "locDeleted": 5,
-    "cost": 0.0054
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "med-17",
     "category": "medium",
     "risk": "MEDIUM",
@@ -2532,23 +1940,7 @@
     "cost": 0.0124
   },
   {
-    "arm": "ponytail",
-    "task": "med-18",
-    "category": "medium",
-    "risk": "MEDIUM",
-    "success": true,
-    "regression": false,
-    "wrongLayer": false,
-    "hardStopped": false,
-    "tokens": 2700,
-    "wastedWork": 0,
-    "filesChanged": 1,
-    "locAdded": 12,
-    "locDeleted": 5,
-    "cost": 0.0054
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "med-18",
     "category": "medium",
     "risk": "MEDIUM",
@@ -2600,23 +1992,7 @@
     "cost": 0.0124
   },
   {
-    "arm": "ponytail",
-    "task": "med-19",
-    "category": "medium",
-    "risk": "MEDIUM",
-    "success": true,
-    "regression": false,
-    "wrongLayer": false,
-    "hardStopped": false,
-    "tokens": 2700,
-    "wastedWork": 0,
-    "filesChanged": 1,
-    "locAdded": 12,
-    "locDeleted": 5,
-    "cost": 0.0054
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "med-19",
     "category": "medium",
     "risk": "MEDIUM",
@@ -2668,23 +2044,7 @@
     "cost": 0.0124
   },
   {
-    "arm": "ponytail",
-    "task": "med-20",
-    "category": "medium",
-    "risk": "MEDIUM",
-    "success": false,
-    "regression": true,
-    "wrongLayer": false,
-    "hardStopped": false,
-    "tokens": 2700,
-    "wastedWork": 30,
-    "filesChanged": 1,
-    "locAdded": 12,
-    "locDeleted": 5,
-    "cost": 0.0054
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "med-20",
     "category": "medium",
     "risk": "MEDIUM",
@@ -2736,23 +2096,7 @@
     "cost": 0.0196
   },
   {
-    "arm": "ponytail",
-    "task": "high-01",
-    "category": "high",
-    "risk": "HIGH",
-    "success": true,
-    "regression": true,
-    "wrongLayer": true,
-    "hardStopped": false,
-    "tokens": 3600,
-    "wastedWork": 65,
-    "filesChanged": 1,
-    "locAdded": 8,
-    "locDeleted": 15,
-    "cost": 0.0072
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "high-01",
     "category": "high",
     "risk": "HIGH",
@@ -2785,7 +2129,7 @@
     "evidenceFacts": 4,
     "detectedRisk": "HIGH",
     "fastPath": false,
-    "hardStopReason": "insufficient-evidence"
+    "hardStopReason": "already-solved"
   },
   {
     "arm": "baseline",
@@ -2804,23 +2148,7 @@
     "cost": 0.0196
   },
   {
-    "arm": "ponytail",
-    "task": "high-02",
-    "category": "high",
-    "risk": "HIGH",
-    "success": false,
-    "regression": true,
-    "wrongLayer": true,
-    "hardStopped": false,
-    "tokens": 3600,
-    "wastedWork": 65,
-    "filesChanged": 1,
-    "locAdded": 8,
-    "locDeleted": 15,
-    "cost": 0.0072
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "high-02",
     "category": "high",
     "risk": "HIGH",
@@ -2872,23 +2200,7 @@
     "cost": 0.0196
   },
   {
-    "arm": "ponytail",
-    "task": "high-03",
-    "category": "high",
-    "risk": "HIGH",
-    "success": false,
-    "regression": true,
-    "wrongLayer": true,
-    "hardStopped": false,
-    "tokens": 3600,
-    "wastedWork": 65,
-    "filesChanged": 1,
-    "locAdded": 8,
-    "locDeleted": 15,
-    "cost": 0.0072
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "high-03",
     "category": "high",
     "risk": "HIGH",
@@ -2940,23 +2252,7 @@
     "cost": 0.0196
   },
   {
-    "arm": "ponytail",
-    "task": "high-04",
-    "category": "high",
-    "risk": "HIGH",
-    "success": false,
-    "regression": true,
-    "wrongLayer": true,
-    "hardStopped": false,
-    "tokens": 3600,
-    "wastedWork": 65,
-    "filesChanged": 1,
-    "locAdded": 8,
-    "locDeleted": 15,
-    "cost": 0.0072
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "high-04",
     "category": "high",
     "risk": "HIGH",
@@ -2989,7 +2285,7 @@
     "evidenceFacts": 4,
     "detectedRisk": "HIGH",
     "fastPath": false,
-    "hardStopReason": "insufficient-evidence"
+    "hardStopReason": "already-solved"
   },
   {
     "arm": "baseline",
@@ -3008,23 +2304,7 @@
     "cost": 0.0196
   },
   {
-    "arm": "ponytail",
-    "task": "high-05",
-    "category": "high",
-    "risk": "HIGH",
-    "success": false,
-    "regression": true,
-    "wrongLayer": true,
-    "hardStopped": false,
-    "tokens": 3600,
-    "wastedWork": 65,
-    "filesChanged": 1,
-    "locAdded": 8,
-    "locDeleted": 15,
-    "cost": 0.0072
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "high-05",
     "category": "high",
     "risk": "HIGH",
@@ -3076,23 +2356,7 @@
     "cost": 0.0196
   },
   {
-    "arm": "ponytail",
-    "task": "high-06",
-    "category": "high",
-    "risk": "HIGH",
-    "success": false,
-    "regression": true,
-    "wrongLayer": true,
-    "hardStopped": false,
-    "tokens": 3600,
-    "wastedWork": 65,
-    "filesChanged": 1,
-    "locAdded": 8,
-    "locDeleted": 15,
-    "cost": 0.0072
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "high-06",
     "category": "high",
     "risk": "HIGH",
@@ -3144,23 +2408,7 @@
     "cost": 0.0196
   },
   {
-    "arm": "ponytail",
-    "task": "high-07",
-    "category": "high",
-    "risk": "HIGH",
-    "success": false,
-    "regression": true,
-    "wrongLayer": true,
-    "hardStopped": false,
-    "tokens": 3600,
-    "wastedWork": 65,
-    "filesChanged": 1,
-    "locAdded": 8,
-    "locDeleted": 15,
-    "cost": 0.0072
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "high-07",
     "category": "high",
     "risk": "HIGH",
@@ -3212,23 +2460,7 @@
     "cost": 0.0196
   },
   {
-    "arm": "ponytail",
-    "task": "high-08",
-    "category": "high",
-    "risk": "HIGH",
-    "success": false,
-    "regression": true,
-    "wrongLayer": true,
-    "hardStopped": false,
-    "tokens": 3600,
-    "wastedWork": 65,
-    "filesChanged": 1,
-    "locAdded": 8,
-    "locDeleted": 15,
-    "cost": 0.0072
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "high-08",
     "category": "high",
     "risk": "HIGH",
@@ -3280,23 +2512,7 @@
     "cost": 0.0196
   },
   {
-    "arm": "ponytail",
-    "task": "high-09",
-    "category": "high",
-    "risk": "HIGH",
-    "success": false,
-    "regression": true,
-    "wrongLayer": true,
-    "hardStopped": false,
-    "tokens": 3600,
-    "wastedWork": 65,
-    "filesChanged": 1,
-    "locAdded": 8,
-    "locDeleted": 15,
-    "cost": 0.0072
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "high-09",
     "category": "high",
     "risk": "HIGH",
@@ -3348,23 +2564,7 @@
     "cost": 0.0196
   },
   {
-    "arm": "ponytail",
-    "task": "high-10",
-    "category": "high",
-    "risk": "HIGH",
-    "success": false,
-    "regression": true,
-    "wrongLayer": true,
-    "hardStopped": false,
-    "tokens": 3600,
-    "wastedWork": 65,
-    "filesChanged": 1,
-    "locAdded": 8,
-    "locDeleted": 15,
-    "cost": 0.0072
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "high-10",
     "category": "high",
     "risk": "HIGH",
@@ -3416,23 +2616,7 @@
     "cost": 0.0196
   },
   {
-    "arm": "ponytail",
-    "task": "high-11",
-    "category": "high",
-    "risk": "HIGH",
-    "success": true,
-    "regression": true,
-    "wrongLayer": true,
-    "hardStopped": false,
-    "tokens": 3600,
-    "wastedWork": 65,
-    "filesChanged": 1,
-    "locAdded": 8,
-    "locDeleted": 15,
-    "cost": 0.0072
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "high-11",
     "category": "high",
     "risk": "HIGH",
@@ -3484,23 +2668,7 @@
     "cost": 0.0196
   },
   {
-    "arm": "ponytail",
-    "task": "high-12",
-    "category": "high",
-    "risk": "HIGH",
-    "success": false,
-    "regression": true,
-    "wrongLayer": true,
-    "hardStopped": false,
-    "tokens": 3600,
-    "wastedWork": 65,
-    "filesChanged": 1,
-    "locAdded": 8,
-    "locDeleted": 15,
-    "cost": 0.0072
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "high-12",
     "category": "high",
     "risk": "HIGH",
@@ -3533,7 +2701,7 @@
     "evidenceFacts": 4,
     "detectedRisk": "HIGH",
     "fastPath": false,
-    "hardStopReason": "insufficient-evidence"
+    "hardStopReason": "already-solved"
   },
   {
     "arm": "baseline",
@@ -3552,23 +2720,7 @@
     "cost": 0.0196
   },
   {
-    "arm": "ponytail",
-    "task": "high-13",
-    "category": "high",
-    "risk": "HIGH",
-    "success": false,
-    "regression": true,
-    "wrongLayer": true,
-    "hardStopped": false,
-    "tokens": 3600,
-    "wastedWork": 65,
-    "filesChanged": 1,
-    "locAdded": 8,
-    "locDeleted": 15,
-    "cost": 0.0072
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "high-13",
     "category": "high",
     "risk": "HIGH",
@@ -3620,23 +2772,7 @@
     "cost": 0.0196
   },
   {
-    "arm": "ponytail",
-    "task": "high-14",
-    "category": "high",
-    "risk": "HIGH",
-    "success": false,
-    "regression": true,
-    "wrongLayer": true,
-    "hardStopped": false,
-    "tokens": 3600,
-    "wastedWork": 65,
-    "filesChanged": 1,
-    "locAdded": 8,
-    "locDeleted": 15,
-    "cost": 0.0072
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "high-14",
     "category": "high",
     "risk": "HIGH",
@@ -3688,23 +2824,7 @@
     "cost": 0.0196
   },
   {
-    "arm": "ponytail",
-    "task": "high-15",
-    "category": "high",
-    "risk": "HIGH",
-    "success": false,
-    "regression": true,
-    "wrongLayer": true,
-    "hardStopped": false,
-    "tokens": 3600,
-    "wastedWork": 65,
-    "filesChanged": 1,
-    "locAdded": 8,
-    "locDeleted": 15,
-    "cost": 0.0072
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "high-15",
     "category": "high",
     "risk": "HIGH",
@@ -3756,23 +2876,7 @@
     "cost": 0.0196
   },
   {
-    "arm": "ponytail",
-    "task": "high-16",
-    "category": "high",
-    "risk": "HIGH",
-    "success": false,
-    "regression": true,
-    "wrongLayer": true,
-    "hardStopped": false,
-    "tokens": 3600,
-    "wastedWork": 65,
-    "filesChanged": 1,
-    "locAdded": 8,
-    "locDeleted": 15,
-    "cost": 0.0072
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "high-16",
     "category": "high",
     "risk": "HIGH",
@@ -3824,23 +2928,7 @@
     "cost": 0.0196
   },
   {
-    "arm": "ponytail",
-    "task": "high-17",
-    "category": "high",
-    "risk": "HIGH",
-    "success": false,
-    "regression": true,
-    "wrongLayer": true,
-    "hardStopped": false,
-    "tokens": 3600,
-    "wastedWork": 65,
-    "filesChanged": 1,
-    "locAdded": 8,
-    "locDeleted": 15,
-    "cost": 0.0072
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "high-17",
     "category": "high",
     "risk": "HIGH",
@@ -3892,23 +2980,7 @@
     "cost": 0.0196
   },
   {
-    "arm": "ponytail",
-    "task": "high-18",
-    "category": "high",
-    "risk": "HIGH",
-    "success": false,
-    "regression": true,
-    "wrongLayer": true,
-    "hardStopped": false,
-    "tokens": 3600,
-    "wastedWork": 65,
-    "filesChanged": 1,
-    "locAdded": 8,
-    "locDeleted": 15,
-    "cost": 0.0072
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "high-18",
     "category": "high",
     "risk": "HIGH",
@@ -3960,23 +3032,7 @@
     "cost": 0.0196
   },
   {
-    "arm": "ponytail",
-    "task": "high-19",
-    "category": "high",
-    "risk": "HIGH",
-    "success": false,
-    "regression": true,
-    "wrongLayer": true,
-    "hardStopped": false,
-    "tokens": 3600,
-    "wastedWork": 65,
-    "filesChanged": 1,
-    "locAdded": 8,
-    "locDeleted": 15,
-    "cost": 0.0072
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "high-19",
     "category": "high",
     "risk": "HIGH",
@@ -4028,23 +3084,7 @@
     "cost": 0.0196
   },
   {
-    "arm": "ponytail",
-    "task": "high-20",
-    "category": "high",
-    "risk": "HIGH",
-    "success": false,
-    "regression": true,
-    "wrongLayer": true,
-    "hardStopped": false,
-    "tokens": 3600,
-    "wastedWork": 65,
-    "filesChanged": 1,
-    "locAdded": 8,
-    "locDeleted": 15,
-    "cost": 0.0072
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "high-20",
     "category": "high",
     "risk": "HIGH",
@@ -4077,7 +3117,7 @@
     "evidenceFacts": 4,
     "detectedRisk": "HIGH",
     "fastPath": false,
-    "hardStopReason": "insufficient-evidence"
+    "hardStopReason": "already-solved"
   },
   {
     "arm": "baseline",
@@ -4096,23 +3136,7 @@
     "cost": 0.0168
   },
   {
-    "arm": "ponytail",
-    "task": "adv-01",
-    "category": "adversarial",
-    "risk": "HIGH",
-    "success": false,
-    "regression": true,
-    "wrongLayer": true,
-    "hardStopped": false,
-    "tokens": 2900,
-    "wastedWork": 85,
-    "filesChanged": 1,
-    "locAdded": 4,
-    "locDeleted": 18,
-    "cost": 0.0058
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "adv-01",
     "category": "adversarial",
     "risk": "HIGH",
@@ -4164,23 +3188,7 @@
     "cost": 0.0168
   },
   {
-    "arm": "ponytail",
-    "task": "adv-02",
-    "category": "adversarial",
-    "risk": "HIGH",
-    "success": false,
-    "regression": true,
-    "wrongLayer": true,
-    "hardStopped": false,
-    "tokens": 2900,
-    "wastedWork": 85,
-    "filesChanged": 1,
-    "locAdded": 4,
-    "locDeleted": 18,
-    "cost": 0.0058
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "adv-02",
     "category": "adversarial",
     "risk": "HIGH",
@@ -4232,23 +3240,7 @@
     "cost": 0.0168
   },
   {
-    "arm": "ponytail",
-    "task": "adv-03",
-    "category": "adversarial",
-    "risk": "HIGH",
-    "success": false,
-    "regression": true,
-    "wrongLayer": true,
-    "hardStopped": false,
-    "tokens": 2900,
-    "wastedWork": 85,
-    "filesChanged": 1,
-    "locAdded": 4,
-    "locDeleted": 18,
-    "cost": 0.0058
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "adv-03",
     "category": "adversarial",
     "risk": "HIGH",
@@ -4300,23 +3292,7 @@
     "cost": 0.0168
   },
   {
-    "arm": "ponytail",
-    "task": "adv-04",
-    "category": "adversarial",
-    "risk": "HIGH",
-    "success": false,
-    "regression": true,
-    "wrongLayer": true,
-    "hardStopped": false,
-    "tokens": 2900,
-    "wastedWork": 85,
-    "filesChanged": 1,
-    "locAdded": 4,
-    "locDeleted": 18,
-    "cost": 0.0058
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "adv-04",
     "category": "adversarial",
     "risk": "HIGH",
@@ -4368,23 +3344,7 @@
     "cost": 0.0168
   },
   {
-    "arm": "ponytail",
-    "task": "adv-05",
-    "category": "adversarial",
-    "risk": "HIGH",
-    "success": false,
-    "regression": true,
-    "wrongLayer": true,
-    "hardStopped": false,
-    "tokens": 2900,
-    "wastedWork": 85,
-    "filesChanged": 1,
-    "locAdded": 4,
-    "locDeleted": 18,
-    "cost": 0.0058
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "adv-05",
     "category": "adversarial",
     "risk": "HIGH",
@@ -4436,23 +3396,7 @@
     "cost": 0.0168
   },
   {
-    "arm": "ponytail",
-    "task": "adv-06",
-    "category": "adversarial",
-    "risk": "HIGH",
-    "success": false,
-    "regression": true,
-    "wrongLayer": true,
-    "hardStopped": false,
-    "tokens": 2900,
-    "wastedWork": 85,
-    "filesChanged": 1,
-    "locAdded": 4,
-    "locDeleted": 18,
-    "cost": 0.0058
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "adv-06",
     "category": "adversarial",
     "risk": "HIGH",
@@ -4504,23 +3448,7 @@
     "cost": 0.0168
   },
   {
-    "arm": "ponytail",
-    "task": "adv-07",
-    "category": "adversarial",
-    "risk": "HIGH",
-    "success": false,
-    "regression": true,
-    "wrongLayer": true,
-    "hardStopped": false,
-    "tokens": 2900,
-    "wastedWork": 85,
-    "filesChanged": 1,
-    "locAdded": 4,
-    "locDeleted": 18,
-    "cost": 0.0058
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "adv-07",
     "category": "adversarial",
     "risk": "HIGH",
@@ -4572,23 +3500,7 @@
     "cost": 0.0168
   },
   {
-    "arm": "ponytail",
-    "task": "adv-08",
-    "category": "adversarial",
-    "risk": "HIGH",
-    "success": false,
-    "regression": true,
-    "wrongLayer": true,
-    "hardStopped": false,
-    "tokens": 2900,
-    "wastedWork": 85,
-    "filesChanged": 1,
-    "locAdded": 4,
-    "locDeleted": 18,
-    "cost": 0.0058
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "adv-08",
     "category": "adversarial",
     "risk": "HIGH",
@@ -4640,23 +3552,7 @@
     "cost": 0.0168
   },
   {
-    "arm": "ponytail",
-    "task": "adv-09",
-    "category": "adversarial",
-    "risk": "HIGH",
-    "success": false,
-    "regression": true,
-    "wrongLayer": true,
-    "hardStopped": false,
-    "tokens": 2900,
-    "wastedWork": 85,
-    "filesChanged": 1,
-    "locAdded": 4,
-    "locDeleted": 18,
-    "cost": 0.0058
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "adv-09",
     "category": "adversarial",
     "risk": "HIGH",
@@ -4708,23 +3604,7 @@
     "cost": 0.0168
   },
   {
-    "arm": "ponytail",
-    "task": "adv-10",
-    "category": "adversarial",
-    "risk": "HIGH",
-    "success": false,
-    "regression": true,
-    "wrongLayer": true,
-    "hardStopped": false,
-    "tokens": 2900,
-    "wastedWork": 85,
-    "filesChanged": 1,
-    "locAdded": 4,
-    "locDeleted": 18,
-    "cost": 0.0058
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "adv-10",
     "category": "adversarial",
     "risk": "HIGH",
@@ -4776,23 +3656,7 @@
     "cost": 0.0168
   },
   {
-    "arm": "ponytail",
-    "task": "adv-11",
-    "category": "adversarial",
-    "risk": "HIGH",
-    "success": false,
-    "regression": true,
-    "wrongLayer": true,
-    "hardStopped": false,
-    "tokens": 2900,
-    "wastedWork": 85,
-    "filesChanged": 1,
-    "locAdded": 4,
-    "locDeleted": 18,
-    "cost": 0.0058
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "adv-11",
     "category": "adversarial",
     "risk": "HIGH",
@@ -4844,23 +3708,7 @@
     "cost": 0.0168
   },
   {
-    "arm": "ponytail",
-    "task": "adv-12",
-    "category": "adversarial",
-    "risk": "HIGH",
-    "success": false,
-    "regression": true,
-    "wrongLayer": true,
-    "hardStopped": false,
-    "tokens": 2900,
-    "wastedWork": 85,
-    "filesChanged": 1,
-    "locAdded": 4,
-    "locDeleted": 18,
-    "cost": 0.0058
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "adv-12",
     "category": "adversarial",
     "risk": "HIGH",
@@ -4912,23 +3760,7 @@
     "cost": 0.0168
   },
   {
-    "arm": "ponytail",
-    "task": "adv-13",
-    "category": "adversarial",
-    "risk": "HIGH",
-    "success": false,
-    "regression": true,
-    "wrongLayer": true,
-    "hardStopped": false,
-    "tokens": 2900,
-    "wastedWork": 85,
-    "filesChanged": 1,
-    "locAdded": 4,
-    "locDeleted": 18,
-    "cost": 0.0058
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "adv-13",
     "category": "adversarial",
     "risk": "HIGH",
@@ -4980,23 +3812,7 @@
     "cost": 0.0168
   },
   {
-    "arm": "ponytail",
-    "task": "adv-14",
-    "category": "adversarial",
-    "risk": "HIGH",
-    "success": false,
-    "regression": true,
-    "wrongLayer": true,
-    "hardStopped": false,
-    "tokens": 2900,
-    "wastedWork": 85,
-    "filesChanged": 1,
-    "locAdded": 4,
-    "locDeleted": 18,
-    "cost": 0.0058
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "adv-14",
     "category": "adversarial",
     "risk": "HIGH",
@@ -5048,23 +3864,7 @@
     "cost": 0.0168
   },
   {
-    "arm": "ponytail",
-    "task": "adv-15",
-    "category": "adversarial",
-    "risk": "HIGH",
-    "success": false,
-    "regression": true,
-    "wrongLayer": true,
-    "hardStopped": false,
-    "tokens": 2900,
-    "wastedWork": 85,
-    "filesChanged": 1,
-    "locAdded": 4,
-    "locDeleted": 18,
-    "cost": 0.0058
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "adv-15",
     "category": "adversarial",
     "risk": "HIGH",
@@ -5116,23 +3916,7 @@
     "cost": 0.0168
   },
   {
-    "arm": "ponytail",
-    "task": "adv-16",
-    "category": "adversarial",
-    "risk": "HIGH",
-    "success": false,
-    "regression": true,
-    "wrongLayer": true,
-    "hardStopped": false,
-    "tokens": 2900,
-    "wastedWork": 85,
-    "filesChanged": 1,
-    "locAdded": 4,
-    "locDeleted": 18,
-    "cost": 0.0058
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "adv-16",
     "category": "adversarial",
     "risk": "HIGH",
@@ -5184,23 +3968,7 @@
     "cost": 0.0168
   },
   {
-    "arm": "ponytail",
-    "task": "adv-17",
-    "category": "adversarial",
-    "risk": "HIGH",
-    "success": false,
-    "regression": true,
-    "wrongLayer": true,
-    "hardStopped": false,
-    "tokens": 2900,
-    "wastedWork": 85,
-    "filesChanged": 1,
-    "locAdded": 4,
-    "locDeleted": 18,
-    "cost": 0.0058
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "adv-17",
     "category": "adversarial",
     "risk": "HIGH",
@@ -5252,23 +4020,7 @@
     "cost": 0.0168
   },
   {
-    "arm": "ponytail",
-    "task": "adv-18",
-    "category": "adversarial",
-    "risk": "HIGH",
-    "success": false,
-    "regression": true,
-    "wrongLayer": true,
-    "hardStopped": false,
-    "tokens": 2900,
-    "wastedWork": 85,
-    "filesChanged": 1,
-    "locAdded": 4,
-    "locDeleted": 18,
-    "cost": 0.0058
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "adv-18",
     "category": "adversarial",
     "risk": "HIGH",
@@ -5320,23 +4072,7 @@
     "cost": 0.0168
   },
   {
-    "arm": "ponytail",
-    "task": "adv-19",
-    "category": "adversarial",
-    "risk": "HIGH",
-    "success": false,
-    "regression": true,
-    "wrongLayer": true,
-    "hardStopped": false,
-    "tokens": 2900,
-    "wastedWork": 85,
-    "filesChanged": 1,
-    "locAdded": 4,
-    "locDeleted": 18,
-    "cost": 0.0058
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "adv-19",
     "category": "adversarial",
     "risk": "HIGH",
@@ -5388,23 +4124,7 @@
     "cost": 0.0168
   },
   {
-    "arm": "ponytail",
-    "task": "adv-20",
-    "category": "adversarial",
-    "risk": "HIGH",
-    "success": false,
-    "regression": true,
-    "wrongLayer": true,
-    "hardStopped": false,
-    "tokens": 2900,
-    "wastedWork": 85,
-    "filesChanged": 1,
-    "locAdded": 4,
-    "locDeleted": 18,
-    "cost": 0.0058
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "adv-20",
     "category": "adversarial",
     "risk": "HIGH",
@@ -5456,23 +4176,7 @@
     "cost": 0.0168
   },
   {
-    "arm": "ponytail",
-    "task": "stop-01",
-    "category": "stop",
-    "risk": "HIGH",
-    "success": false,
-    "regression": true,
-    "wrongLayer": true,
-    "hardStopped": false,
-    "tokens": 2900,
-    "wastedWork": 85,
-    "filesChanged": 1,
-    "locAdded": 4,
-    "locDeleted": 18,
-    "cost": 0.0058
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "stop-01",
     "category": "stop",
     "risk": "HIGH",
@@ -5524,23 +4228,7 @@
     "cost": 0.0168
   },
   {
-    "arm": "ponytail",
-    "task": "stop-02",
-    "category": "stop",
-    "risk": "HIGH",
-    "success": false,
-    "regression": true,
-    "wrongLayer": true,
-    "hardStopped": false,
-    "tokens": 2900,
-    "wastedWork": 85,
-    "filesChanged": 1,
-    "locAdded": 4,
-    "locDeleted": 18,
-    "cost": 0.0058
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "stop-02",
     "category": "stop",
     "risk": "HIGH",
@@ -5592,23 +4280,7 @@
     "cost": 0.0168
   },
   {
-    "arm": "ponytail",
-    "task": "stop-03",
-    "category": "stop",
-    "risk": "HIGH",
-    "success": false,
-    "regression": true,
-    "wrongLayer": true,
-    "hardStopped": false,
-    "tokens": 2900,
-    "wastedWork": 85,
-    "filesChanged": 1,
-    "locAdded": 4,
-    "locDeleted": 18,
-    "cost": 0.0058
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "stop-03",
     "category": "stop",
     "risk": "HIGH",
@@ -5660,23 +4332,7 @@
     "cost": 0.0168
   },
   {
-    "arm": "ponytail",
-    "task": "stop-04",
-    "category": "stop",
-    "risk": "HIGH",
-    "success": false,
-    "regression": true,
-    "wrongLayer": true,
-    "hardStopped": false,
-    "tokens": 2900,
-    "wastedWork": 85,
-    "filesChanged": 1,
-    "locAdded": 4,
-    "locDeleted": 18,
-    "cost": 0.0058
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "stop-04",
     "category": "stop",
     "risk": "HIGH",
@@ -5728,23 +4384,7 @@
     "cost": 0.0168
   },
   {
-    "arm": "ponytail",
-    "task": "stop-05",
-    "category": "stop",
-    "risk": "HIGH",
-    "success": false,
-    "regression": true,
-    "wrongLayer": true,
-    "hardStopped": false,
-    "tokens": 2900,
-    "wastedWork": 85,
-    "filesChanged": 1,
-    "locAdded": 4,
-    "locDeleted": 18,
-    "cost": 0.0058
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "stop-05",
     "category": "stop",
     "risk": "HIGH",
@@ -5796,23 +4436,7 @@
     "cost": 0.0168
   },
   {
-    "arm": "ponytail",
-    "task": "stop-06",
-    "category": "stop",
-    "risk": "HIGH",
-    "success": false,
-    "regression": true,
-    "wrongLayer": true,
-    "hardStopped": false,
-    "tokens": 2900,
-    "wastedWork": 85,
-    "filesChanged": 1,
-    "locAdded": 4,
-    "locDeleted": 18,
-    "cost": 0.0058
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "stop-06",
     "category": "stop",
     "risk": "HIGH",
@@ -5864,23 +4488,7 @@
     "cost": 0.0168
   },
   {
-    "arm": "ponytail",
-    "task": "stop-07",
-    "category": "stop",
-    "risk": "HIGH",
-    "success": false,
-    "regression": true,
-    "wrongLayer": true,
-    "hardStopped": false,
-    "tokens": 2900,
-    "wastedWork": 85,
-    "filesChanged": 1,
-    "locAdded": 4,
-    "locDeleted": 18,
-    "cost": 0.0058
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "stop-07",
     "category": "stop",
     "risk": "HIGH",
@@ -5932,23 +4540,7 @@
     "cost": 0.0168
   },
   {
-    "arm": "ponytail",
-    "task": "stop-08",
-    "category": "stop",
-    "risk": "HIGH",
-    "success": false,
-    "regression": true,
-    "wrongLayer": true,
-    "hardStopped": false,
-    "tokens": 2900,
-    "wastedWork": 85,
-    "filesChanged": 1,
-    "locAdded": 4,
-    "locDeleted": 18,
-    "cost": 0.0058
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "stop-08",
     "category": "stop",
     "risk": "HIGH",
@@ -6000,23 +4592,7 @@
     "cost": 0.0168
   },
   {
-    "arm": "ponytail",
-    "task": "stop-09",
-    "category": "stop",
-    "risk": "HIGH",
-    "success": false,
-    "regression": true,
-    "wrongLayer": true,
-    "hardStopped": false,
-    "tokens": 2900,
-    "wastedWork": 85,
-    "filesChanged": 1,
-    "locAdded": 4,
-    "locDeleted": 18,
-    "cost": 0.0058
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "stop-09",
     "category": "stop",
     "risk": "HIGH",
@@ -6068,23 +4644,7 @@
     "cost": 0.0168
   },
   {
-    "arm": "ponytail",
-    "task": "stop-10",
-    "category": "stop",
-    "risk": "HIGH",
-    "success": false,
-    "regression": true,
-    "wrongLayer": true,
-    "hardStopped": false,
-    "tokens": 2900,
-    "wastedWork": 85,
-    "filesChanged": 1,
-    "locAdded": 4,
-    "locDeleted": 18,
-    "cost": 0.0058
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "stop-10",
     "category": "stop",
     "risk": "HIGH",
@@ -6136,23 +4696,7 @@
     "cost": 0.0168
   },
   {
-    "arm": "ponytail",
-    "task": "stop-11",
-    "category": "stop",
-    "risk": "HIGH",
-    "success": false,
-    "regression": true,
-    "wrongLayer": true,
-    "hardStopped": false,
-    "tokens": 2900,
-    "wastedWork": 85,
-    "filesChanged": 1,
-    "locAdded": 4,
-    "locDeleted": 18,
-    "cost": 0.0058
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "stop-11",
     "category": "stop",
     "risk": "HIGH",
@@ -6204,23 +4748,7 @@
     "cost": 0.0168
   },
   {
-    "arm": "ponytail",
-    "task": "stop-12",
-    "category": "stop",
-    "risk": "HIGH",
-    "success": false,
-    "regression": true,
-    "wrongLayer": true,
-    "hardStopped": false,
-    "tokens": 2900,
-    "wastedWork": 85,
-    "filesChanged": 1,
-    "locAdded": 4,
-    "locDeleted": 18,
-    "cost": 0.0058
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "stop-12",
     "category": "stop",
     "risk": "HIGH",
@@ -6272,23 +4800,7 @@
     "cost": 0.0168
   },
   {
-    "arm": "ponytail",
-    "task": "stop-13",
-    "category": "stop",
-    "risk": "HIGH",
-    "success": false,
-    "regression": true,
-    "wrongLayer": true,
-    "hardStopped": false,
-    "tokens": 2900,
-    "wastedWork": 85,
-    "filesChanged": 1,
-    "locAdded": 4,
-    "locDeleted": 18,
-    "cost": 0.0058
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "stop-13",
     "category": "stop",
     "risk": "HIGH",
@@ -6340,23 +4852,7 @@
     "cost": 0.0168
   },
   {
-    "arm": "ponytail",
-    "task": "stop-14",
-    "category": "stop",
-    "risk": "HIGH",
-    "success": false,
-    "regression": true,
-    "wrongLayer": true,
-    "hardStopped": false,
-    "tokens": 2900,
-    "wastedWork": 85,
-    "filesChanged": 1,
-    "locAdded": 4,
-    "locDeleted": 18,
-    "cost": 0.0058
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "stop-14",
     "category": "stop",
     "risk": "HIGH",
@@ -6408,23 +4904,7 @@
     "cost": 0.0168
   },
   {
-    "arm": "ponytail",
-    "task": "stop-15",
-    "category": "stop",
-    "risk": "HIGH",
-    "success": false,
-    "regression": true,
-    "wrongLayer": true,
-    "hardStopped": false,
-    "tokens": 2900,
-    "wastedWork": 85,
-    "filesChanged": 1,
-    "locAdded": 4,
-    "locDeleted": 18,
-    "cost": 0.0058
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "stop-15",
     "category": "stop",
     "risk": "HIGH",
@@ -6476,23 +4956,7 @@
     "cost": 0.0168
   },
   {
-    "arm": "ponytail",
-    "task": "stop-16",
-    "category": "stop",
-    "risk": "HIGH",
-    "success": false,
-    "regression": true,
-    "wrongLayer": true,
-    "hardStopped": false,
-    "tokens": 2900,
-    "wastedWork": 85,
-    "filesChanged": 1,
-    "locAdded": 4,
-    "locDeleted": 18,
-    "cost": 0.0058
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "stop-16",
     "category": "stop",
     "risk": "HIGH",
@@ -6544,23 +5008,7 @@
     "cost": 0.0168
   },
   {
-    "arm": "ponytail",
-    "task": "stop-17",
-    "category": "stop",
-    "risk": "HIGH",
-    "success": false,
-    "regression": true,
-    "wrongLayer": true,
-    "hardStopped": false,
-    "tokens": 2900,
-    "wastedWork": 85,
-    "filesChanged": 1,
-    "locAdded": 4,
-    "locDeleted": 18,
-    "cost": 0.0058
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "stop-17",
     "category": "stop",
     "risk": "HIGH",
@@ -6612,23 +5060,7 @@
     "cost": 0.0168
   },
   {
-    "arm": "ponytail",
-    "task": "stop-18",
-    "category": "stop",
-    "risk": "HIGH",
-    "success": false,
-    "regression": true,
-    "wrongLayer": true,
-    "hardStopped": false,
-    "tokens": 2900,
-    "wastedWork": 85,
-    "filesChanged": 1,
-    "locAdded": 4,
-    "locDeleted": 18,
-    "cost": 0.0058
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "stop-18",
     "category": "stop",
     "risk": "HIGH",
@@ -6680,23 +5112,7 @@
     "cost": 0.0168
   },
   {
-    "arm": "ponytail",
-    "task": "stop-19",
-    "category": "stop",
-    "risk": "HIGH",
-    "success": false,
-    "regression": true,
-    "wrongLayer": true,
-    "hardStopped": false,
-    "tokens": 2900,
-    "wastedWork": 85,
-    "filesChanged": 1,
-    "locAdded": 4,
-    "locDeleted": 18,
-    "cost": 0.0058
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "stop-19",
     "category": "stop",
     "risk": "HIGH",
@@ -6748,23 +5164,7 @@
     "cost": 0.0168
   },
   {
-    "arm": "ponytail",
-    "task": "stop-20",
-    "category": "stop",
-    "risk": "HIGH",
-    "success": false,
-    "regression": true,
-    "wrongLayer": true,
-    "hardStopped": false,
-    "tokens": 2900,
-    "wastedWork": 85,
-    "filesChanged": 1,
-    "locAdded": 4,
-    "locDeleted": 18,
-    "cost": 0.0058
-  },
-  {
-    "arm": "graybeard-v0",
+    "arm": "prompt-only",
     "task": "stop-20",
     "category": "stop",
     "risk": "HIGH",

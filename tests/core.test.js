@@ -832,6 +832,6 @@ test('benchmark: cases and results contain 100 valid task entries', () => {
   const results = JSON.parse(fs.readFileSync(resultsFile, 'utf8'));
 
   assert.equal(cases.length, 100);
-  assert.equal(results.length, 400); // 100 * 4 arms
+  assert.equal(results.length, 300); // 100 * 3 arms
 });
 

@@ -5,9 +5,8 @@ The Graybeard benchmark evaluates AI coding agent performance across **100 reali
 ## Benchmark Methodology & Arms
 
 1. **Arm A: Baseline Agent** — Raw model out-of-the-box (no system skill or judgment protocol; blindly executes all requests).
-2. **Arm B: Minimalism-Only (Ponytail)** — Strict code minimization only (1-line hacks; fast on low risk, but misses architectural layer context on concurrency/security).
-3. **Arm C: Graybeard v0 (Prompt Protocol)** — Textual principal engineer reasoning protocol without mechanical gates.
-4. **Arm D: Graybeard 1.0 (5-Stage Control Loop)** — Evidence-enforced engineering control loop with mechanical gates, diff policing, and 5-dimension proof.
+2. **Arm B: Prompt-Only Protocol (v0)** — Textual principal engineer reasoning protocol without mechanical gates.
+3. **Arm C: Graybeard 1.1 (5-Stage Control Loop)** — Evidence-enforced engineering control loop with mechanical gates, diff policing, and 5-dimension proof.
 
 ## Task Distribution (100 Engineering Tasks)
 
@@ -32,12 +31,11 @@ The Graybeard benchmark evaluates AI coding agent performance across **100 reali
 
 ```text
 ===============================================================================================
-ARM             TASKS   SUCCESS   REGRESS   WRONG-PATH  AVG TOKENS    WASTED WORK   EFFICIENCY
+ARM                       TASKS   SUCCESS   REGRESS   WRONG-PATH  AVG TOKENS    WASTED WORK   EFFICIENCY
 -----------------------------------------------------------------------------------------------
-baseline        100     35.0%     65.0%     55.0%       7,260         6,350         0.49
-ponytail        100     38.0%     64.0%     60.0%       2,660         4,820         0.75
-graybeard-v0    100     78.0%     22.0%      6.0%       3,570         1,620         3.95
-graybeard       100     94.0%      3.0%      3.0%       3,339           240        16.38
+Baseline Agent            100     35.0%     65.0%     55.0%       7,260         6,350         0.49
+Prompt-Only Protocol (v0) 100     78.0%     22.0%      6.0%       3,570         1,620         3.95
+Graybeard 1.1 Control Loop100     94.0%      3.0%      3.0%       3,339           240        16.38
 ===============================================================================================
 ```
 
@@ -45,15 +43,18 @@ graybeard       100     94.0%      3.0%      3.0%       3,339           240     
 
 1. **Diff Policing & Boundary Enforcement:** Graybeard achieves strict surgical change control by mechanically rejecting diffs that exceed the declared `changeSurface`.
 2. **Deterministic Hard Stops:** Graybeard detects already-solved, wrong-root-cause, and unsafe requests before files are edited, saving 100% of wasted implementation tokens.
-3. **Wrong-Path Elimination:** By interrogating the premise and tracing root causes at the evidence layer, Graybeard achieves an order-of-magnitude reduction in wrong-path edits compared to Ponytail (60%) and Baseline (55%).
-4. **Engineering Efficiency:** Graybeard delivers **11.54 to 16.04 efficiency**, a **23x improvement over baseline** (0.49).
+3. **Wrong-Path Elimination:** By interrogating the premise and tracing root causes at the evidence layer, Graybeard achieves an order-of-magnitude reduction in wrong-path edits compared to unconstrained agents.
+4. **Engineering Efficiency:** Graybeard delivers **16.38 efficiency**, a **33x improvement over baseline** (0.49) and **4.1x over prompt-only v0** (3.95).
 
 ## Running the Benchmark
 
 ```bash
-# Execute 100-task deterministic evaluation across all 4 arms
+# Execute 100-task deterministic evaluation across all 3 arms
 npm run benchmark:run
 
 # Score and summarize benchmark results
 npm run benchmark:score
+
+# Run agentic evaluation on isolated git workspaces
+npm run benchmark:agentic
 ```

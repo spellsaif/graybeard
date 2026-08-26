@@ -29,7 +29,7 @@
 - [Deterministic Hard Stop Engine](#-deterministic-hard-stop-engine)
 - [Calibrated Floor Risk Model](#-calibrated-floor-risk-model)
 - [5-Dimension Decision Proof](#-5-dimension-decision-proof)
-- [Deterministic Benchmark Suite (100 Tasks Across 4 Arms)](#-deterministic-benchmark-suite-100-tasks-across-4-arms)
+- [Deterministic & Agentic Benchmark Suites](#-deterministic--agentic-benchmark-suites)
 - [Supported Coding Agents & Installation](#-supported-coding-agents--installation)
 - [AI Coding Agent Playbooks](#-ai-coding-agent-playbooks)
 - [CLI Reference](#-cli-reference)
@@ -50,15 +50,15 @@ When you rush to his desk in a panic because production is down, he doesn't fran
 
 ---
 
-## ⚡ The Problem with Raw Agents & Prompt Ladders
+## ⚡ The Problem with Raw Agents & Unenforced Prompting
 
-Most AI coding tools fail in subtle, expensive ways:
+Most AI coding agents fail in subtle, expensive ways when guided only by passive system prompts:
 
-1. **The "Wrong Layer" Trap:** A user reports duplicate orders. A raw agent modifies 5 frontend files with debounce hooks. A prompt-only minimalism ladder (like Ponytail) writes a 1-line `disabled={isSubmitting}` button hack. **Both fail in production** when background retries or mobile APIs hit the server. Graybeard questions the premise, discovers the true fault, and adds a database idempotency constraint.
-2. **Deleting Chesterton's Fences:** A user asks to remove a "weird 500ms sleep" in a worker. Prompt-only minimalism deletes it as "bloat"—instantly causing downstream third-party rate-limit outages. Graybeard inspects git history (`archaeology`), uncovers the 2 req/sec throttling constraint, and halts with proof.
+1. **The "Wrong Layer" Trap:** A user reports duplicate orders. A raw agent modifies 5 frontend files with debounce hooks. A prompt-only minimalism guideline writes a 1-line `disabled={isSubmitting}` button hack. **Both fail in production** when background retries or mobile APIs hit the server. Graybeard questions the premise, discovers the true fault, and adds a database idempotency constraint.
+2. **Deleting Chesterton's Fences:** A user asks to remove a "weird 500ms sleep" in a worker. Passive prompt guidelines delete it as "bloat"—instantly causing downstream third-party rate-limit outages. Graybeard inspects git history (`archaeology`), uncovers the 2 req/sec throttling constraint, and halts with proof.
 3. **Diff Sprawl & Lack of Boundaries:** Models start editing files they were never asked to touch. Graybeard mechanically enforces a single `changeSurface` boundary and rejects unexpected diffs via compiler/git-level guards.
 
-| Scenario | Raw Coding Agent (Intern) | Ponytail (Lazy Senior Prompt) | Graybeard (Principal Engineer Control Loop) |
+| Scenario | Raw Baseline Agent (Intern) | Prompt-Only Guidelines (Unenforced) | Graybeard (Evidence-Enforced Control Loop) |
 | :--- | :--- | :--- | :--- |
 | **User asks for a Date Picker** | Installs 3 npm packages, writes 400 lines of wrapper CSS, creates timezone context. | Writes `<input type="date">` in 1 line. *(Wins!)* | Classifies `styling/low-risk` $\rightarrow$ Fast-Path (< 500ms) $\rightarrow$ Writes `<input type="date">` in 1 line. *(Wins!)* |
 | **Ticket: "Debounce checkout button to prevent duplicate orders"** | Adds debounce hooks, event listeners, loading spinners in 5 frontend files. | Writes `disabled={isSubmitting}` on `CheckoutButton.tsx` (2 lines). *(Fails in production!)* | **Questions premise & traces causality:** Network retries and mobile API calls bypass UI. Applies unique idempotency constraint at database layer (3 lines). |
@@ -227,26 +227,36 @@ console.log(proof.breakdown);
 
 ---
 
-## 📊 Deterministic Benchmark Suite (100 Tasks Across 4 Arms)
+## 📊 Deterministic & Agentic Benchmark Suites
 
-Evaluated across 100 realistic software engineering tasks (20 Low, 20 Medium, 20 High, 20 Adversarial, 20 Stop) using Graybeard's deterministic evaluation harness:
+Graybeard includes two comprehensive evaluation harnesses:
+
+### 1. The 100-Task Deterministic Evaluation Suite
+Evaluates classification, risk calibration, hard stop discovery, and stage contracts across 100 realistic software engineering tasks (20 Low, 20 Medium, 20 High, 20 Adversarial, 20 Stop):
 
 ```text
 ===============================================================================================
-ARM             TASKS   SUCCESS   REGRESS   WRONG-PATH  AVG TOKENS    WASTED WORK   EFFICIENCY
+ARM                       TASKS   SUCCESS   REGRESS   WRONG-PATH  AVG TOKENS    WASTED WORK   EFFICIENCY
 -----------------------------------------------------------------------------------------------
-baseline        100     35.0%     65.0%     55.0%       7,260         6,350         0.49
-ponytail        100     38.0%     64.0%     60.0%       2,660         4,820         0.75
-graybeard-v0    100     78.0%     22.0%      6.0%       3,570         1,620         3.95
-graybeard (1.1) 100     94.0%      3.0%      3.0%       3,339           240        16.38
+Baseline Agent            100     35.0%     65.0%     55.0%       7,260         6,350         0.49
+Prompt-Only Protocol (v0) 100     78.0%     22.0%      6.0%       3,570         1,620         3.95
+Graybeard 1.1 Control Loop100     94.0%      3.0%      3.0%       3,339           240        16.38
 ===============================================================================================
 ```
 
 $$\text{Engineering Efficiency} = \frac{\text{Successful Tasks}}{\text{Total Tokens / 1000} + \text{Wasted Work}} \times 100$$
 
-- **33x Efficiency Gain over Baseline & 4.1x over v0:** Eliminates wasted generation and hallucinated solutions.
+- **33x Efficiency Gain over Baseline:** Eliminates wasted generation and hallucinated solutions.
+- **4.1x Efficiency Gain over Prompt-Only (v0):** Mechanical diff policing and stage gates prevent broken diff merges.
 - **Wrong-Path Reduction:** Interrogates premises and enforces layer boundaries before file modifications.
-- **5-Dimension Mechanical Proof:** Halts invalid or out-of-boundary code before merge.
+
+### 2. The End-to-End Agentic Fixture Testbed
+Spins up isolated temporary git repositories from [`benchmarks/fixtures/ecommerce-core`](benchmarks/fixtures/ecommerce-core), applies real disk edits, runs live `git diff` inspections, and evaluates real test suite oracles (`node --test`):
+
+```bash
+# Execute agentic evaluation on isolated git workspaces
+npm run benchmark:agentic
+```
 
 ---
 
@@ -402,9 +412,10 @@ npx graybeard verify
 # 6. Run workspace readiness doctor
 npx graybeard doctor
 
-# 7. Execute 100-task benchmark suite
-npm run benchmark:run
-npm run benchmark:score
+# 7. Execute benchmark suites
+npm run benchmark:run      # Deterministic 100-task engine benchmark
+npm run benchmark:score    # Score and aggregate benchmark metrics
+npm run benchmark:agentic  # End-to-end agentic benchmark on isolated git fixtures
 ```
 
 ---

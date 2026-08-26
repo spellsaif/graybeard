@@ -24,6 +24,7 @@ import {
   TransitionError
 } from './gates.js';
 import { detectOracles, runOracle, verifyWorkspace, verifyDecision } from './oracles.js';
+import { createSession, transitionStage, applyObservation, finalizeDecision, verifySession } from './engine.js';
 
 export {
   calculateRisk,
@@ -64,7 +65,12 @@ export {
   detectOracles,
   runOracle,
   verifyWorkspace,
-  verifyDecision
+  verifyDecision,
+  createSession,
+  transitionStage,
+  applyObservation,
+  finalizeDecision,
+  verifySession
 };
 
 const clamp = (v) => Math.max(0, Math.min(1, v));
